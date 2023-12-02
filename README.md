@@ -1,3 +1,3 @@
-# hardware-Store
+# Data structure project
 
-- This project is for educational purpose **(Data structure project)**
+- This project is for educational purpose
