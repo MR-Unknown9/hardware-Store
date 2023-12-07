@@ -46,7 +46,8 @@ void printMenu() {
     std::cout << "1. Add component\n";
     std::cout << "2. Remove component\n";
     std::cout << "3. Display inventory\n";
-    std::cout << "4. Exit\n";
+    std::cout << "4. Sort inventory by price\n";
+    std::cout << "5. Exit\n";
     std::cout << "*********************************************************\n";
     std::cout << "Enter your choice: ";
 }
