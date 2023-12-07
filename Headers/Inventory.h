@@ -4,21 +4,34 @@
 #include<iostream>
 #include<string>
 
-struct Component {
-    std::string type;
-    std::string name;
+using namespace std;
+
+struct Component
+{
+    string type, name;
     int price;
     Component* next;
 };
 
-class Inventory {
-    private:
-        Component* head;
-    public:
-        Inventory() : head(NULL) {}
-};
+class Inventory
+{
+private:
+    Component* head;
 
-// add your methods here and don't fuck around the rest of the code
+public:
+    Inventory()
+    {
+        head = NULL;
+    };
+    // add your methods here and don't fuck around the rest of the code
+
+    bool isEmpty()
+    {
+        return (head == NULL);
+    }
+
+
+};
 
 
 
@@ -32,16 +45,13 @@ class Inventory {
 
 
 // don't write any method past this comment 
-
 void printMenu() {
-    std::cout << "\n\n********** Computer Store Inventory Management **********\n";
-    std::cout << "1. Add component\n";
-    std::cout << "2. Remove component\n";
-    std::cout << "3. Display inventory\n";
-    std::cout << "4. Exit\n";
-    std::cout << "*********************************************************\n";
-    std::cout << "Enter your choice: ";
+    cout << "\n\n********** Computer Store Inventory Management **********\n";
+    cout << "1. Add component\n";
+    cout << "2. Remove component\n";
+    cout << "3. Display inventory\n";
+    cout << "4. Exit\n";
+    cout << "*********************************************************\n";
+    cout << "Enter your choice: ";
 }
-
-
 #endif

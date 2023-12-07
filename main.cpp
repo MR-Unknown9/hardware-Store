@@ -1,45 +1,52 @@
-// This is a hardware repo to store the parts
-// and track the parts and₫the spare
+//This is a program for storing and tracking hardware parts
 
 #include <iostream>
-#include "Inventory.h"
+#include "Headers/Inventory.h"
 // INCLUDE the header file, i don't want to kill you 😇 
 
 using namespace std;
 
-
-int main() {
-    Inventory inventory;
+int main()
+{
+    Inventory i;
     int choice;
-    std::string type, name;
+    string type, name;
+    bool flag = true;
 
-    while (true) {
+    while (flag)
+    {
         printMenu();
-        std::cin >> choice;
+        cin >> choice;
 
-        switch (choice) {
+        switch (choice)
+        {
             case 1:
-                std::cout << "Enter component type: ";
-                std::cin >> type;
-                std::cout << "Enter component name: ";
-                std::cin >> name;
-                // inventory.addComponent(type, name);
-                break;
+                cout << "Enter component type: ";
+                cin >> type;
+                cout << "Enter component name: ";
+                cin >> name;
+                // i.addComponent(type, name);
+            break;
+
             case 2:
-                std::cout << "Enter component name to remove: ";
-                std::cin >> name;
-                // inventory.removeComponent(name);
-                break;
+                cout << "Enter component name to remove: ";
+                cin >> name;
+                // i.removeComponent(name);
+            break;
+
             case 3:
-                std::cout << "\nCurrent Inventory:\n";
-                // inventory.displayInventory();
+                cout << "\nCurrent Inventory:\n";
+                // i.displayInventory();
                 break;
+
             case 4:
-                return 0;
+                flag = false;
+            break;
+
             default:
-                std::cout << "Invalid choice\n";
+                cout << "Invalid choice\n";
+            break;
         }
     }
-
     return 0;
 }
