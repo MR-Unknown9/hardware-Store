@@ -33,6 +33,14 @@ class Inventory {
 
 // don't write any method past this comment 
 
+void displayInventory() {
+            Component* temp = head;
+            while (temp != NULL) {
+                std::cout << "Type: " << temp->type << ", Name: " << temp->name << ", Price: " << temp->price << std::endl;
+                temp = temp->next;
+            }
+        }
+
 void printMenu() {
     std::cout << "\n\n********** Computer Store Inventory Management **********\n";
     std::cout << "1. Add component\n";
