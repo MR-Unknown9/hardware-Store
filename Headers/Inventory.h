@@ -29,7 +29,7 @@ public:
     {
         return (head == NULL);
     }
-    
+
     void displayInventory()
     {
         Component *temp = head;
@@ -58,7 +58,8 @@ void printMenu() {
     cout << "1. Add component\n";
     cout << "2. Remove component\n";
     cout << "3. Display inventory\n";
-    cout << "4. Exit\n";
+    cout << "4. Sort inventory\n";
+    cout << "5. Exit\n";
     cout << "*********************************************************\n";
     cout << "Enter your choice: ";
 }
