@@ -1,46 +1,81 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 
-using namespace std;
-
-struct Node
-{
-    string info;
-    Node *next;
+struct Component {
+    std::string type;
+    std::string name;
+    Component* next;
 };
 
-class Inventory
-{
-private:
-    Node *head;
-public:
-    Inventory()
-    {
-        head = NULL;
-    };
+class Inventory {
+    private:
+        Component* head;
+    public:
+        Inventory() : head(NULL) {}
+};
 
-    bool isEmpty()
-    {
-        return (head == NULL);
-    }
+// add your methods here and don't fuck around the rest of the code
 
-    void print()
-    {
-        if (!isEmpty())
-        {
-            Node *temp = head;
-            while (temp->next != NULL)
-            {
-                cout << temp->info << "  ";
-                temp->next;
-            }
+
+
+
+
+
+
+
+
+
+
+
+// don't write any method past this comment 
+
+void printMenu() {
+    std::cout << "\n\n********** Computer Store Inventory Management **********\n";
+    std::cout << "1. Add component\n";
+    std::cout << "2. Remove component\n";
+    std::cout << "3. Display inventory\n";
+    std::cout << "4. Exit\n";
+    std::cout << "*********************************************************\n";
+    std::cout << "Enter your choice: ";
+}
+
+int main() {
+    Inventory inventory;
+    int choice;
+    std::string type, name;
+
+    while (true) {
+        printMenu();
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                std::cout << "Enter component type: ";
+                std::cin >> type;
+                std::cout << "Enter component name: ";
+                std::cin >> name;
+                // inventory.addComponent(type, name);
+                break;
+            case 2:
+                std::cout << "Enter component name to remove: ";
+                std::cin >> name;
+                // inventory.removeComponent(name);
+                break;
+            case 3:
+                std::cout << "\nCurrent Inventory:\n";
+                // inventory.displayInventory();
+                break;
+            case 4:
+                return 0;
+            default:
+                std::cout << "Invalid choice\n";
         }
-        else
-            cout << "The Inventory Is Empty.";
     }
 
-};
+    return 0;
+}
+
 #endif
