@@ -12,6 +12,7 @@ int main() {
     Inventory inventory;
     int choice;
     std::string type, name;
+    int price;
 
     while (true) {
         printMenu();
@@ -19,22 +20,29 @@ int main() {
 
         switch (choice) {
             case 1:
-                std::cout << "Enter component type: ";
+                std::cout << "Enter component type (cpu, gpu, mb, psu, ram): ";
                 std::cin >> type;
                 std::cout << "Enter component name: ";
                 std::cin >> name;
-                // inventory.addComponent(type, name);
+                std::cout << "Enter component price: ";
+                std::cin >> price;
+                inventory.addComponent(type, name, price);
                 break;
             case 2:
                 std::cout << "Enter component name to remove: ";
                 std::cin >> name;
-                // inventory.removeComponent(name);
+                inventory.removeComponent(name);
                 break;
             case 3:
                 std::cout << "\nCurrent Inventory:\n";
-                // inventory.displayInventory();
+                inventory.displayInventory();
                 break;
             case 4:
+                inventory.sortInventory();
+                std::cout << "\nSorted Inventory:\n";
+                inventory.displayInventory();
+                break;
+            case 5:
                 return 0;
             default:
                 std::cout << "Invalid choice\n";
