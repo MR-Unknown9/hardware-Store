@@ -1,8 +1,9 @@
 //This is a program for storing and tracking hardware parts
+// start: thu 07/12 --> end: tue 19/12 11 days remaining
+// INCLUDE the header file "Headers/Inventory.h", I don't want to kill you 😇 
 
 #include <iostream>
 #include "Headers/Inventory.h"
-// INCLUDE the header file, i don't want to kill you 😇 
 
 using namespace std;
 

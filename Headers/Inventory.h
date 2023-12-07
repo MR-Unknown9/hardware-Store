@@ -8,6 +8,7 @@ using namespace std;
 
 struct Component
 {
+public:
     string type, name;
     int price;
     Component* next;
@@ -35,32 +36,23 @@ public:
         Component *temp = head;
         while (temp != NULL)
         {
-            std::cout << "Type: " << temp->type << ", Name: " << temp->name << ", Price: " << temp->price << std::endl;
+            cout << "Type: " << temp->type 
+                 << ", Name: " << temp->name 
+                 << ", Price: " << temp->price << "\n";
             temp = temp->next;
         }
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
 // don't write any method past this comment 
-void printMenu() {
-    cout << "\n\n********** Computer Store Inventory Management **********\n";
-    cout << "1. Add component\n";
-    cout << "2. Remove component\n";
-    cout << "3. Display inventory\n";
-    cout << "4. Sort inventory\n";
-    cout << "5. Exit\n";
-    cout << "*********************************************************\n";
-    cout << "Enter your choice: ";
+void printMenu()
+{
+    cout << "\n********** Computer Store Inventory Management **********\n"
+         << "1. Add component\n"
+         << "2. Remove component\n"
+         << "3. Display inventory\n"
+         << "4. Sort inventory\n"
+         << "5. Exit\n"
+         << "*********************************************************\n"
+         << "Enter your choice: ";
 }
 #endif
