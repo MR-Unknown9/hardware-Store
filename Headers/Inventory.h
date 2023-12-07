@@ -7,6 +7,7 @@
 struct Component {
     std::string type;
     std::string name;
+    int price;
     Component* next;
 };
 
