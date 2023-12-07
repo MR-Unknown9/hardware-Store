@@ -37,9 +37,15 @@ int main()
             case 3:
                 cout << "\nCurrent Inventory:\n";
                 // i.displayInventory();
-                break;
+            break;
 
             case 4:
+                //i.sortInventory();
+                cout << "\nSorted Inventory:\n";
+                //i.displayInventory();
+            break;
+
+            case 5:
                 flag = false;
             break;
 

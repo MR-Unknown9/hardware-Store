@@ -29,8 +29,16 @@ public:
     {
         return (head == NULL);
     }
-
-
+    
+    void displayInventory()
+    {
+        Component *temp = head;
+        while (temp != NULL)
+        {
+            std::cout << "Type: " << temp->type << ", Name: " << temp->name << ", Price: " << temp->price << std::endl;
+            temp = temp->next;
+        }
+    }
 };
 
 
