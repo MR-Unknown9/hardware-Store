@@ -30,7 +30,7 @@ public:
         return (head == NULL);
     }
 
-    void displayInventory()
+    void display()
     {
         Component *temp = head;
         while (temp != NULL)
