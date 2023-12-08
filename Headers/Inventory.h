@@ -1,8 +1,9 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
+#include <limits.h>
 
 using namespace std;
 
@@ -31,7 +32,7 @@ public:
         return (head == NULL);
     }
 
-    void display()
+    void displayInventory()
     {
         Component *temp = head;
         while (temp != NULL)
@@ -51,8 +52,7 @@ void printMenu()
          << "2. Remove component\n"
          << "3. Display inventory\n"
          << "4. Sort inventory\n"
-         << "5. Exit\n"
-         << "*********************************************************\n"
+         << "5. Exit\n" << "*********************************************************\n" 
          << "Enter your choice: ";
 }
 #endif
