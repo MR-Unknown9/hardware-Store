@@ -21,10 +21,7 @@ private:
     Component* head;
 
 public:
-    Inventory()
-    {
-        head = NULL;
-    };
+    Inventory() : head(NULL){};
     // add your methods here and don't fuck around the rest of the code
 
     bool isEmpty()
@@ -32,16 +29,35 @@ public:
         return (head == NULL);
     }
 
+    void addComponent(string type, string name, int price)
+    {
+               
+        Component* newComponent = new Component();
+        newComponent->type = type;
+        newComponent->name = name;
+        newComponent->price = price;
+
+        newComponent->next = head;
+        head = newComponent;
+
+        cout << "Component added successfully.\n";
+    }
+
     void displayInventory()
     {
-        Component *temp = head;
-        while (temp != NULL)
+        if (!isEmpty())
         {
-            cout << "Type: " << temp->type 
-                 << ", Name: " << temp->name 
-                 << ", Price: " << temp->price << "\n";
-            temp = temp->next;
+            Component *temp = head;
+            while (temp != NULL)
+            {
+                cout << "Type: " << temp->type
+                     << ", Name: " << temp->name
+                     << ", Price: " << temp->price << "\n";
+                temp = temp->next;
+            }
         }
+        else
+            cout << "It is empty for now\n";
     }
 };
 // don't write any method past this comment 
