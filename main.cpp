@@ -1,5 +1,6 @@
 //This is a program for storing and tracking hardware parts
-// start: thu 07/12 --> end: tue 19/12 11 days remaining
+// start: thu 07/12 --> end: tue 19/12
+//  10 days remaining
 // INCLUDE the header file => "Headers/Inventory.h", I don't want to kill you 😇 
 
 #include <iostream>
@@ -10,6 +11,9 @@
 #include "Headers/Inventory.h"
 
 using namespace std;
+
+const int MAX_IGNORE = 10000;
+bool checkType(string &type);
 
 int main()
 {
@@ -28,15 +32,15 @@ int main()
         case 1:
             do
             {
-                cout << "Enter component type (cpu, gpu, ram, mb, psu): ";
+                cout << "Enter component type (cpu, gpu, psu, mb, psu): ";
                 cin >> type;
 
                 transform(type.begin(), type.end(), type.begin(), ::tolower);
 
-                if (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb")
-                    cout << "Invalid choice for component type. Please enter cpu, gpu, psu, ram, or mb.\n";
-
-            } while (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb");
+                if (!checkType(type))
+                    cout << "Invalid component type.\n";
+                    
+            } while (!checkType(type));
 
             cout << "Enter component name: ";
             getline(cin >> ws, name);
@@ -49,7 +53,7 @@ int main()
                 cout << "Invalid price. Please enter an integer.\n";
                 cin.clear();
 
-                cin.ignore(10000, '\n');
+                cin.ignore(MAX_IGNORE, '\n');
                 break;
             }
 
@@ -81,8 +85,16 @@ int main()
             cout << "Invalid choice\n";
             break;
         }
-        // don't touch it
         Sleep(250);
     }
     return 0;
+}
+
+bool checkType(string &type)
+{
+    if (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb")
+        return false;
+
+    else
+        return true;
 }

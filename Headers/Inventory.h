@@ -22,16 +22,15 @@ private:
 
 public:
     Inventory() : head(NULL){};
+    ~Inventory(){};
     // add your methods here and don't fuck around the rest of the code
-
     bool isEmpty()
     {
         return (head == NULL);
     }
 
     void addComponent(string type, string name, int price)
-    {
-               
+    { 
         Component* newComponent = new Component();
         newComponent->type = type;
         newComponent->name = name;
@@ -71,4 +70,40 @@ void printMenu()
          << "5. Exit\n" << "*********************************************************\n" 
          << "Enter your choice: ";
 }
+
+void sorting()
+{
+    int choice = NULL;
+    do 
+    {
+        cout << "Enter your filter\n"
+             << "1. By price\n"
+             << "2. By type\n";
+
+        cin >> choice;
+
+        if (choice != 1 && choice != 2)
+            cout << "Invalid number.\n";
+
+    } while (choice != 1 && choice != 2);
+
+    if (choice == 1) // sorting by price
+    {
+        choice = NULL;
+        do
+        {
+            cout << "edit your filter\n"
+                 << "1. High to low\n"
+                 << "2. Low to high\n";
+
+            cin >> choice;
+
+            if (choice != 1 && choice != 2)
+                cout << "Invalid number.\n";
+
+        } while (choice != 1 && choice != 2);
+
+        
+    }
+} 
 #endif
