@@ -18,94 +18,121 @@ bool checkType(string &type);
 int main()
 {
     Inventory i;
-    int choice;
-    string type, name;
-    bool flag = true;
+    // int choice;
+    // string type, name;
+    // bool flag = true;
 
-    while (flag)
-    {
-        printMenu();
-        cin >> choice;
+    // while (flag)
+    // {
+    //     printMenu();
+    //     cin >> choice;
 
-        switch (choice)
-        {
-        case 1:
-            do
-            {
-                cout << "Enter component type (cpu, gpu, psu, mb, psu): ";
-                cin >> type;
+    //     switch (choice)
+    //     {
+    //     case 1:
+    //         do
+    //         {
+    //             cout << "\nEnter component type (cpu, gpu, psu, mb, psu): ";
+    //             cin >> type;
 
-                transform(type.begin(), type.end(), type.begin(), ::tolower);
+    //             transform(type.begin(), type.end(), type.begin(), ::tolower);
 
-                if (!checkType(type))
-                    cout << "Invalid component type.\n";
+    //             if (!checkType(type))
+    //                 cout << "Invalid component type.\n";
 
-            } while (!checkType(type));
+    //         } while (!checkType(type));
 
-            cout << "Enter component name: ";
-            getline(cin >> ws, name);
+    //         cout << "\nEnter component name: ";
+    //         getline(cin >> ws, name);
 
-            cout << "Enter component price: ";
-            int price;
+    //         cout << "\nEnter component price: ";
+    //         int price;
 
-            if (!(cin >> price))
-            {
-                cout << "Invalid price. Please enter an integer.\n";
-                cin.clear();
+    //         if (!(cin >> price))
+    //         {
+    //             cout << "Invalid price. Please enter an integer.\n";
+    //             cin.clear();
 
-                cin.ignore(MAX_IGNORE, '\n');
-                break;
-            }
+    //             cin.ignore(MAX_IGNORE, '\n');
+    //             break;
+    //         }
 
-            i.addComponent(type, name, price);
-            break;
+    //         i.addComponent(type, name, price);
+    //         cout << "Component added successfully.\n";
 
-        case 2:
-            cout << "Enter component name to remove: ";
-            // i.deleteComponent();
-            cin >> name;
+    //         break;
 
-            break;
+    //     case 2:
+    //         cout << "\nEnter component name to remove: ";
+    //         // i.deleteComponent();
+    //         cin >> name;
 
-        case 3:
-            cout << "Current Inventory:\n";
-            i.displayInventory();
-            break;
+    //         break;
 
-        case 4:
-            do
-            {
-                cout << "Enter your filter\n"
-                     << "1. By price\n"
-                     << "2. By type\n";
+    //     case 3:
+    //         cout << "\nCurrent Inventory:\n";
+    //         i.displayInventory();
+    //         break;
 
-                cin >> choice;
+    //     case 4:
+    //         do
+    //         {
+    //             cout << "\nEnter your filter\n"
+    //                  << "1. By price\n"
+    //                  << "2. By type\n";
 
-                if (choice != 1 && choice != 2)
-                    cout << "Invalid number.\n";
+    //             cin >> choice;
 
-            } while (choice != 1 && choice != 2);
+    //             if (choice != 1 && choice != 2)
+    //                 cout << "Invalid number.\n";
 
-            if (choice == 1) // sorting by price
-                i.sortInventory();
+    //         } while (choice != 1 && choice != 2);
 
-            else
-                // i.sortInventory();
-                cout << "sorted inventory: \n";
-                i.displayInventory();
-                break;
+    //         if (choice == 1) // sorting by price
+    //             i.sortInventoryByPrice();
 
-            case 5:
-                flag = false;
-                break;
+    //         else // sorting by type
+    //             i.sortInventoryByType();
 
-            default:
-                cout << "Invalid choice\n";
-                break;
+    //         cout << "\nsorted inventory: \n";
+    //         i.displayInventory();
+    //             break;
+
+    //         case 5:
+    //             i.countInventory();
+    //             break;
+
+    //         case 6:
+    //             flag = false;
+    //             break;
+
+    //         default:
+    //             cout << "Invalid choice\n";
+    //             break;
             
-            Sleep(250);
-        }   
-    }
+    //         Sleep(250);
+    //     }   
+    // }
+    i.addComponent("cpu", "asdf", 1000);
+    i.addComponent("cpu", "asdf", 100);
+    i.addComponent("cpu", "asdf", 1400);
+    i.addComponent("gpu", "asdf", 2000);
+    i.addComponent("gpu", "asdf", 200);
+    i.addComponent("psu", "asdf", 8000);
+    i.addComponent("psu", "asdf", 8000);
+    i.addComponent("psu", "asdf", 8050);
+    i.addComponent("ram", "asdf", 5000);
+    i.addComponent("ram", "asdf", 6000);
+
+    cout << i.count() << "\n";
+    i.countInventory();
+    // i.sortInventoryByPrice();
+
+    // cout << i.count() << "\n";
+    // i.sortInventoryByType();
+
+    // cout << i.count();
+
     return 0;
 }
 
