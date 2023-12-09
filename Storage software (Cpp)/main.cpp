@@ -1,7 +1,7 @@
-//This is a program for storing and tracking hardware parts
-// start: thu 07/12 --> end: tue 19/12
-//  10 days remaining
-// INCLUDE the header file => "Headers/Inventory.h", I don't want to kill you 😇 
+// This is a program for storing and tracking hardware parts
+//  start: thu 07/12 --> end: tue 19/12
+//   10 days remaining
+//  INCLUDE the header file => "Headers/Inventory.h", I don't want to kill you 😇
 
 #include <iostream>
 #include <string>
@@ -39,7 +39,7 @@ int main()
 
                 if (!checkType(type))
                     cout << "Invalid component type.\n";
-                    
+
             } while (!checkType(type));
 
             cout << "Enter component name: ";
@@ -73,19 +73,38 @@ int main()
             break;
 
         case 4:
-            cout << "Sorted Inventory:\n";
-            // i.sortInventory();
-            break;
+            do
+            {
+                cout << "Enter your filter\n"
+                     << "1. By price\n"
+                     << "2. By type\n";
 
-        case 5:
-            flag = false;
-            break;
+                cin >> choice;
 
-        default:
-            cout << "Invalid choice\n";
-            break;
-        }
-        Sleep(250);
+                if (choice != 1 && choice != 2)
+                    cout << "Invalid number.\n";
+
+            } while (choice != 1 && choice != 2);
+
+            if (choice == 1) // sorting by price
+                i.sortInventory();
+
+            else
+                // i.sortInventory();
+                cout << "sorted inventory: \n";
+                i.displayInventory();
+                break;
+
+            case 5:
+                flag = false;
+                break;
+
+            default:
+                cout << "Invalid choice\n";
+                break;
+            
+            Sleep(250);
+        }   
     }
     return 0;
 }

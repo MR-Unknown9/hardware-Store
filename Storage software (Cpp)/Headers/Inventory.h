@@ -12,13 +12,13 @@ struct Component
 public:
     string type, name;
     int price;
-    Component* next;
+    Component *next;
 };
 
 class Inventory
 {
 private:
-    Component* head;
+    Component *head;
 
 public:
     Inventory() : head(NULL){};
@@ -29,9 +29,26 @@ public:
         return (head == NULL);
     }
 
+    int Count()
+    {
+        int size = 0;
+
+        if (!isEmpty())
+        {
+            Component *temp = head;
+            while (temp->next != NULL)
+            {
+                size++;
+                temp = temp->next;
+            }
+            size++;
+        }
+        return size;
+    }
+
     void addComponent(string type, string name, int price)
-    { 
-        Component* newComponent = new Component();
+    {
+        Component *newComponent = new Component();
         newComponent->type = type;
         newComponent->name = name;
         newComponent->price = price;
@@ -62,48 +79,32 @@ public:
     // I want to kill myself 😒
     void sortInventory()
     {
-        int choice = NULL, max = INT_MIN, min = INT_MAX;
-        do
+        for (int i = 0; i < Count(); i++)
         {
-            cout << "Enter your filter\n"
-                 << "1. By price\n"
-                 << "2. By type\n";
-
-            cin >> choice;
-
-            if (choice != 1 && choice != 2)
-                cout << "Invalid number.\n";
-
-        } while (choice != 1 && choice != 2);
-
-        if (choice == 1) // sorting by price
-        {
-            choice = NULL;
-            do
+            Component *temp = head, *prev = NULL;
+            while (temp->next != NULL)
             {
-                cout << "edit your filter\n"
-                     << "1. High to low\n"
-                     << "2. Low to high\n";
+                if (temp->price < temp->next->price)
+                {
+                    Component *next = temp->next;
+                    temp->next = next->next;
+                    next->next = temp;
+                    if (prev == NULL)
+                        head = next;
 
-                cin >> choice;
-
-                if (choice != 1 && choice != 2)
-                    cout << "Invalid number.\n";
-
-            } while (choice != 1 && choice != 2);
-
-            if (choice == 1) // High to low
-            {
-
+                    else
+                        prev->next = next;
+                }
+                else
+                {
+                    prev = temp;
+                    temp = temp->next;
+                }
             }
-            // else if (choice == 2) // Low to high
-            // {
-
-            // }
         }
     }
 };
-// don't write any method past this comment 
+// don't write any method past this comment
 void printMenu()
 {
     cout << "\n********** Computer Store Inventory Management **********\n"
@@ -111,7 +112,8 @@ void printMenu()
          << "2. Remove component\n"
          << "3. Display inventory\n"
          << "4. Sort inventory\n"
-         << "5. Exit\n" << "*********************************************************\n" 
+         << "5. Exit\n"
+         << "*********************************************************\n"
          << "Enter your choice: ";
 }
 #endif
