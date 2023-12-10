@@ -1,146 +1,139 @@
 // This is a program for storing and tracking hardware parts
 //  start: thu 07/12 --> end: tue 19/12
-//   10 days remaining
+//   6 days remaining
 //  INCLUDE the header file => "Headers/Inventory.h", I don't want to kill you 😇
 
 #include <iostream>
 #include <string>
 #include <cctype>
 #include <algorithm>
+#include <set>
 #include <windows.h>
 #include "Headers/Inventory.h"
 
-using namespace std;
-
 const int MAX_IGNORE = 10000;
-bool checkType(string &type);
+
+enum MenuChoice
+{
+    EXIT,
+    ADD_COMPONENT,
+    REMOVE_COMPONENT,
+    DISPLAY_INVENTORY,
+    SORT_INVENTORY,
+    COUNT_INVENTORY,
+    SEARCH_COMPONENT
+};
+
+bool checkType(const std::string &type);
 
 int main()
 {
     Inventory i;
-    // int choice;
-    // string type, name;
-    // bool flag = true;
+    int choice;
+    std::string type, name;
+    bool flag = true;
 
-    // while (flag)
-    // {
-    //     printMenu();
-    //     cin >> choice;
+    while (flag)
+    {
+        printMenu();
+        std::cin >> choice;
 
-    //     switch (choice)
-    //     {
-    //     case 1:
-    //         do
-    //         {
-    //             cout << "\nEnter component type (cpu, gpu, psu, mb, psu): ";
-    //             cin >> type;
+        switch (choice)
+        {
+        case EXIT:
+            flag = false;
+            break;
 
-    //             transform(type.begin(), type.end(), type.begin(), ::tolower);
+        case ADD_COMPONENT:
+            do
+            {
+                std::cout << "\nEnter component type (cpu, gpu, psu, mb, psu): ";
+                std::cin >> type;
 
-    //             if (!checkType(type))
-    //                 cout << "Invalid component type.\n";
+                std::transform(type.begin(), type.end(), type.begin(), ::tolower);
 
-    //         } while (!checkType(type));
+                if (!checkType(type))
+                    std::cout << "Invalid component type.\n";
 
-    //         cout << "\nEnter component name: ";
-    //         getline(cin >> ws, name);
+            } while (!checkType(type));
 
-    //         cout << "\nEnter component price: ";
-    //         int price;
+            std::cout << "\nEnter component name: ";
+            std::getline(std::cin >> std::ws, name);
 
-    //         if (!(cin >> price))
-    //         {
-    //             cout << "Invalid price. Please enter an integer.\n";
-    //             cin.clear();
+            std::cout << "\nEnter component price: ";
+            int price;
 
-    //             cin.ignore(MAX_IGNORE, '\n');
-    //             break;
-    //         }
+            if (!(std::cin >> price))
+            {
+                std::cout << "Invalid price. Please enter an integer.\n";
+                std::cin.clear();
 
-    //         i.addComponent(type, name, price);
-    //         cout << "Component added successfully.\n";
+                std::cin.ignore(MAX_IGNORE, '\n');
+                break;
+            }
 
-    //         break;
+            i.addComponent(type, name, price);
+            std::cout << "Component added successfully.\n";
 
-    //     case 2:
-    //         cout << "\nEnter component name to remove: ";
-    //         // i.deleteComponent();
-    //         cin >> name;
+            break;
 
-    //         break;
+        case REMOVE_COMPONENT:
+            std::cout << "\nEnter component name to remove: ";
+            std::cin >> name;
+            i.deleteComponent(name);
 
-    //     case 3:
-    //         cout << "\nCurrent Inventory:\n";
-    //         i.displayInventory();
-    //         break;
+            break;
 
-    //     case 4:
-    //         do
-    //         {
-    //             cout << "\nEnter your filter\n"
-    //                  << "1. By price\n"
-    //                  << "2. By type\n";
+        case DISPLAY_INVENTORY:
+            std::cout << "\nCurrent Inventory:\n";
+            i.displayInventory();
+            break;
 
-    //             cin >> choice;
+        case SORT_INVENTORY:
+            do
+            {
+                std::cout << "\nEnter your filter\n"
+                          << "1. By price\n"
+                          << "2. By type\n";
 
-    //             if (choice != 1 && choice != 2)
-    //                 cout << "Invalid number.\n";
+                std::cin >> choice;
 
-    //         } while (choice != 1 && choice != 2);
+                if (choice != 1 && choice != 2)
+                    std::cout << "Invalid number.\n";
 
-    //         if (choice == 1) // sorting by price
-    //             i.sortInventoryByPrice();
+            } while (choice != 1 && choice != 2);
 
-    //         else // sorting by type
-    //             i.sortInventoryByType();
+            if (choice == 1) // sorting by price
+                i.sortInventoryByPrice();
 
-    //         cout << "\nsorted inventory: \n";
-    //         i.displayInventory();
-    //             break;
+            else // sorting by type
+                i.sortInventoryByType();
 
-    //         case 5:
-    //             i.countInventory();
-    //             break;
+            std::cout << "\nsorted inventory: \n";
+            i.displayInventory();
 
-    //         case 6:
-    //             flag = false;
-    //             break;
+            break;
 
-    //         default:
-    //             cout << "Invalid choice\n";
-    //             break;
-            
-    //         Sleep(250);
-    //     }   
-    // }
-    i.addComponent("cpu", "asdf", 1000);
-    i.addComponent("cpu", "asdf", 100);
-    i.addComponent("cpu", "asdf", 1400);
-    i.addComponent("gpu", "asdf", 2000);
-    i.addComponent("gpu", "asdf", 200);
-    i.addComponent("psu", "asdf", 8000);
-    i.addComponent("psu", "asdf", 8000);
-    i.addComponent("psu", "asdf", 8050);
-    i.addComponent("ram", "asdf", 5000);
-    i.addComponent("ram", "asdf", 6000);
+        case COUNT_INVENTORY:
+            i.countInventory();
+            break;
 
-    cout << i.count() << "\n";
-    i.countInventory();
-    // i.sortInventoryByPrice();
+        case SEARCH_COMPONENT:
+            std::cout << "Enter Component name to search";
+            break;
 
-    // cout << i.count() << "\n";
-    // i.sortInventoryByType();
+        default:
+            std::cout << "Invalid choice\n";
+            break;
 
-    // cout << i.count();
-
+        }
+        Sleep(250);
+    }
     return 0;
 }
 
-bool checkType(string &type)
+bool checkType(const std::string &type)
 {
-    if (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb")
-        return false;
-
-    else
-        return true;
+    std::set<std::string> valid_types = {"cpu", "gpu", "psu", "ram", "mb"};
+    return valid_types.count(type);
 }

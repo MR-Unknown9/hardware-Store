@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <limits.h>
 
 using namespace std;
 
@@ -55,32 +54,32 @@ public:
             cout << "There aren't any items to count!"
                  << "\n";
 
-            else
+        else
+        {
+            while (temp != NULL)
             {
-                while (temp != NULL)
-                {
-                    if (temp->type == "cpu")
-                        cpu++;
+                if (temp->type == "cpu")
+                    cpu++;
 
-                    else if (temp->type == "gpu")
-                        gpu++;
+                else if (temp->type == "gpu")
+                    gpu++;
 
-                    else if (temp->type == "mb")
-                        mb++;
+                else if (temp->type == "mb")
+                    mb++;
 
-                    else if (temp->type == "psu")
-                        psu++;
+                else if (temp->type == "psu")
+                    psu++;
 
-                    else
-                        ram++;
+                else
+                    ram++;
 
-                    temp = temp->next;
-                }
-                cout << "Cpu: " << cpu << "\n";
-                cout << "Gpu: " << gpu << "\n";
-                cout << "Mb: " << mb << "\n";
-                cout << "Psu: " << psu << "\n";
-                cout << "ram: " << ram << "\n";
+                temp = temp->next;
+            }
+            cout << "Cpu: " << cpu << "\n";
+            cout << "Gpu: " << gpu << "\n";
+            cout << "Mb: " << mb << "\n";
+            cout << "Psu: " << psu << "\n";
+            cout << "ram: " << ram << "\n";
         }
     }
 
@@ -93,7 +92,40 @@ public:
 
         newComponent->next = head;
         head = newComponent;
+    }
 
+    void deleteComponent(string name)
+    {
+
+        Component *current = head, *previous = head;
+
+        if (isEmpty()) // في حالة ان المخزن فاضي
+        {
+            cout << "Inventory is empty. Cannot remove component.\n";
+            return;
+        }
+
+        if (current->name == name)
+        { // في حالة ان الي هو عايو يمسحة اول حاجة
+            head = current->next;
+            free(current);
+            return;
+        }
+
+        while (current != NULL && current->name != name)
+        {
+            previous = current; // في حالة ان الي عايز يمسحة مش اول حاجة بس المهم يكون موجود اصلا في المخزن
+            current = current->next;
+        }
+
+        if (current == NULL)
+        { // في حالة ان الي عايز يمسحة مش موجود اصلا
+            cout << "component not found.\n";
+        }
+
+        previous->next = current->next;
+        free(current);
+        cout << "Component deleted successfully.\n";
     }
 
     void displayInventory()
@@ -114,59 +146,79 @@ public:
     }
 
     // I want to kill myself 😒
-    // void sortInventoryByPrice()
-    // {
-    //     for (int i = 1; i <= count(); i++)
-    //     {
-    //         Component *temp = head, *prev = NULL;
-    //         while (temp->next != NULL)
-    //         {
-    //             if (temp->price < temp->next->price)
-    //             {
-    //                 Component *next = temp->next;
-    //                 temp->next = next->next;
-    //                 next->next = temp;
-    //                 if (prev == NULL)
-    //                     head = next;
+    void sortInventoryByPrice()
+    {
+        for (int i = 0; i < count() - 1; i++)
+        {
+            Component *current = head,
+                      *nextNode = head->next,
+                      *prev = NULL;
 
-    //                 else
-    //                     prev->next = next;
-    //             }
-    //             else
-    //             {
-    //                 prev = temp;
-    //                 temp = temp->next;
-    //             }
-    //         }
-    //     }
-    // }
+            for (int j = 0; j < count() - i - 1; j++)
+            {
+                if (current->price > nextNode->price)
+                {
+                    if (prev == NULL)
+                    {
+                        head = nextNode;
+                    }
+                    else
+                    {
+                        prev->next = nextNode;
+                    }
 
-    // void sortInventoryByType()
-    // {
-    //     for (int i = 1; i <= count(); i++)
-    //     {
-    //         Component *temp = head, *prev = NULL;
-    //         while (temp->next != NULL)
-    //         {
-    //             if (temp->type > temp->next->type)
-    //             {
-    //                 Component *next = temp->next;
-    //                 temp->next = next->next;
-    //                 next->next = temp;
+                    current->next = nextNode->next;
+                    nextNode->next = current;
 
-    //                 if (prev == NULL)
-    //                     head = next;
-    //                 else
-    //                     prev->next = next;
-    //             }
-    //             else
-    //             {
-    //                 prev = temp;
-    //                 temp = temp->next;
-    //             }
-    //         }
-    //     }
-    // }
+                    prev = nextNode;
+                    nextNode = current->next;
+                }
+                else
+                {
+                    prev = current;
+                    current = nextNode;
+                    nextNode = nextNode->next;
+                }
+            }
+        }
+    }
+
+    void sortInventoryByType()
+    {
+        for (int i = 0; i < count() - 1; i++)
+        {
+            Component *current = head,
+                      *nextNode = head->next,
+                      *prev = NULL;
+
+            for (int j = 0; j < count() - i - 1; j++)
+            {
+                if (current->type > nextNode->type)
+                {
+                    if (prev == NULL)
+                    {
+                        head = nextNode;
+                    }
+                    else
+                    {
+                        prev->next = nextNode;
+                    }
+
+                    current->next = nextNode->next;
+                    nextNode->next = current;
+
+                    prev = nextNode;
+                    nextNode = current->next;
+                }
+                else
+                {
+                    prev = current;
+                    current = nextNode;
+                    nextNode = nextNode->next;
+                }
+            }
+        }
+    }
 };
 // don't write any method past this comment
 void printMenu()
@@ -177,7 +229,8 @@ void printMenu()
          << "3. Display inventory\n"
          << "4. Sort inventory\n"
          << "5. Count inventory\n"
-         << "6. Exit\n"
+         << "6. Search for a component\n"
+         << "0. Exit\n"
          << "*********************************************************\n"
          << "Enter your choice: ";
 }
