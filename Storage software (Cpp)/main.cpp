@@ -12,15 +12,17 @@
 
 using namespace std;
 
-const int MAX_IGNORE = 10000;
-bool checkType(string &type);
-
 int main()
 {
     Inventory i;
-    int choice;
+    int choice,searchChoice;
     string type, name;
     bool flag = true;
+    Component* foundByName;
+    Component* foundByType;
+    bool foundInRange;
+    
+
 
     while (flag)
     {
@@ -34,36 +36,27 @@ int main()
             break;
 
         case 1:
-            do
-            {
-                cout << "\nEnter component type (cpu, gpu, psu, mb, psu): ";
+            do {
+                cout << "Enter component type (cpu, gpu, ram, mb, psu): ";
                 cin >> type;
-
-                transform(type.begin(), type.end(), type.begin(), ::tolower);
-
-                if (!checkType(type))
-                    cout << "Invalid component type.\n";
-
-            } while (!checkType(type));
-
-            cout << "\nEnter component name: ";
-            getline(cin >> ws, name);
-
-            cout << "\nEnter component price: ";
+                if (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb") {
+                    cout << "\nInvalid choice for component type. Please enter cpu, gpu, psu, ram, or mb.\n";
+                }
+            } while (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb");
+            
+            cout << "Enter component name: ";
+            cin >> name;
             int price;
-
-            if (!(cin >> price))
-            {
-                cout << "Invalid price. Please enter an integer.\n";
-                cin.clear();
-
-                cin.ignore(MAX_IGNORE, '\n');
-                break;
-            }
-
+            do {
+                cout << "Enter component price: ";
+                cin >> price;
+                if (cin.fail()) {
+                    cout << "Invalid price. Please enter an integer.\n";
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+            } while (cin.fail());
             i.addComponent(type, name, price);
-            cout << "Component added successfully.\n";
-
             break;
 
         case 2:
@@ -81,7 +74,7 @@ int main()
         case 4:
             do
             {
-                cout << "\nEnter your filter\n"
+                cout << "\nChoose filter\n"
                      << "1. By price\n"
                      << "2. By type\n";
 
@@ -108,25 +101,56 @@ int main()
             break;
 
         case 6:
-            cout << "Enter Component name to earch";
+            printSearchMenu();
+            cin >> searchChoice;
+            switch (searchChoice)
+            {
+            case 1:
+                cout << "Enter component name to search: ";
+                cin >> name;
+                foundByName = i.searchByName(name); 
+                if (foundByName != NULL) {
+                    cout << "Found component - Type: " << foundByName->type << ", Name: " << foundByName->name << ", Price: " << foundByName->price << "\n";
+                } else {
+                    cout << "No component found with the given name.\n";
+                }
+                break;
 
+            case 2:
+                cout << "Enter component type to search: ";
+                cin >> type;
+                foundByType = i.searchByType(type);
+                if (foundByType != NULL) {
+                    cout << "Found component - Type: " << foundByType->type << ", Name: " << foundByType->name << ", Price: " << foundByType->price << "\n";
+                }
+                break;
+
+            case 3:
+                int minPrice, maxPrice;
+                cout << "Enter minimum price: ";
+                cin >> minPrice;
+                cout << "Enter maximum price: ";
+                cin >> maxPrice;
+                foundInRange = i.searchByPriceRange(minPrice, maxPrice); 
+                if (!foundInRange) {
+                    cout << "No component found in the given price range.\n";
+                }
+                break;
+
+            case 4:
+                // Go back to main menu
+                break;
+
+            default:
+                cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+                break;
+            }
             break;
-
+            
         default:
-            cout << "Invalid choice\n";
+            cout << "Invalid choice. Please enter a number between 0 and 6.\n";
             break;
-
-            Sleep(250);
-        }
+        }        
     }
     return 0;
-}
-
-bool checkType(string &type)
-{
-    if (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb")
-        return false;
-
-    else
-        return true;
 }
