@@ -1,9 +1,6 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include <iostream>
-#include <string>
-
 using namespace std;
 
 struct Component
@@ -22,7 +19,7 @@ private:
 public:
     Inventory() : head(NULL){};
     ~Inventory(){};
-    // add your methods here and don't fuck around the rest of the code
+    // add your methods here and don't fuck around the rest with the code
     bool isEmpty()
     {
         return (head == NULL);
@@ -145,6 +142,76 @@ public:
             cout << "It is empty for now\n";
     }
 
+
+
+    Component* searchByName(string name)
+    {
+        Component* current = head;
+ 
+        while (current != NULL)
+        {
+            if (current->name == name)
+            {
+                return current; 
+            }
+            current = current->next;
+        }
+ 
+        return NULL; 
+    }
+ 
+    Component* searchByType(string type)
+    {
+        bool found = false;
+        
+        for (Component* current = head; current != NULL; current = current->next)
+        {
+            if (current->type == type)
+            {
+                cout << "Name: " << current->name << ", Price: " << current->price << ", Type: " << current->type << "\n";
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+                cout << "No component found with the given type.\n";
+        }
+        
+        
+ 
+        return NULL; 
+    }
+ 
+    bool searchByPriceRange(int minPrice, int maxPrice)
+    {
+        if (isEmpty())
+        {
+            cout << "Inventory is empty.\n";
+            return false;
+        }
+ 
+        Component* current = head;
+        bool found = false;
+ 
+        while (current != NULL)
+        {
+            if (current->price >= minPrice && current->price <= maxPrice)
+            {
+                found = 1;
+                cout << "Name: " << current->name << " Price: " << current->price << " Type: " << current->type << "\n";
+            }
+            current = current->next;
+        }
+ 
+        if (!found)
+        {
+            cout << "There is no component in this range!\n";
+        }
+ 
+        return found;
+    }
+
     // I want to kill myself 😒
     void sortInventoryByPrice()
     {
@@ -232,6 +299,17 @@ void printMenu()
          << "6. Search for a component\n"
          << "0. Exit\n"
          << "*********************************************************\n"
+         << "Enter your choice: ";
+}
+
+void printSearchMenu()
+{
+    cout << "\n**** Search Menu ****\n"
+         << "1. Search by name\n"
+         << "2. Search by type\n"
+         << "3. Search by price range\n"
+         << "4. Back to main menu\n"
+         << "*******************\n"
          << "Enter your choice: ";
 }
 #endif
