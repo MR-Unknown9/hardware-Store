@@ -5,9 +5,7 @@
 
 #include <iostream>
 #include <string>
-#include <cctype>
-#include <algorithm>
-#include <windows.h>
+
 #include "Headers/Inventory.h"
 
 using namespace std;
@@ -22,7 +20,6 @@ int main()
     Component* foundByType;
     bool foundInRange;
     
-
 
     while (flag)
     {
