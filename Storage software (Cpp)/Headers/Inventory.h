@@ -1,5 +1,6 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
+#include <iostream>
 
 using namespace std;
 
@@ -226,13 +227,10 @@ public:
                 if (current->price > nextNode->price)
                 {
                     if (prev == NULL)
-                    {
                         head = nextNode;
-                    }
+
                     else
-                    {
                         prev->next = nextNode;
-                    }
 
                     current->next = nextNode->next;
                     nextNode->next = current;
@@ -263,13 +261,10 @@ public:
                 if (current->type > nextNode->type)
                 {
                     if (prev == NULL)
-                    {
                         head = nextNode;
-                    }
+
                     else
-                    {
                         prev->next = nextNode;
-                    }
 
                     current->next = nextNode->next;
                     nextNode->next = current;
