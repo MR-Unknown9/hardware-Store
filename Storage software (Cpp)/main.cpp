@@ -13,13 +13,14 @@ using namespace std;
 int main()
 {
     Inventory i;
-    int choice,searchChoice;
-    string type, name;
+    int choice, searchChoice,freshPrice;
+    string type, name,freshName;
     bool flag = true;
     Component* foundByName;
     Component* foundByType;
     bool foundInRange;
-    
+
+
 
     while (flag)
     {
@@ -40,7 +41,7 @@ int main()
                     cout << "\nInvalid choice for component type. Please enter cpu, gpu, psu, ram, or mb.\n";
                 }
             } while (type != "cpu" && type != "gpu" && type != "psu" && type != "ram" && type != "mb");
-            
+
             cout << "Enter component name: ";
             cin >> name;
             int price;
@@ -72,8 +73,8 @@ int main()
             do
             {
                 cout << "\nChoose filter\n"
-                     << "1. By price\n"
-                     << "2. By type\n";
+                    << "1. By price\n"
+                    << "2. By type\n";
 
                 cin >> choice;
 
@@ -105,10 +106,11 @@ int main()
             case 1:
                 cout << "Enter component name to search: ";
                 cin >> name;
-                foundByName = i.searchByName(name); 
+                foundByName = i.searchByName(name);
                 if (foundByName != NULL) {
                     cout << "Found component - Type: " << foundByName->type << ", Name: " << foundByName->name << ", Price: " << foundByName->price << "\n";
-                } else {
+                }
+                else {
                     cout << "No component found with the given name.\n";
                 }
                 break;
@@ -128,7 +130,7 @@ int main()
                 cin >> minPrice;
                 cout << "Enter maximum price: ";
                 cin >> maxPrice;
-                foundInRange = i.searchByPriceRange(minPrice, maxPrice); 
+                foundInRange = i.searchByPriceRange(minPrice, maxPrice);
                 if (!foundInRange) {
                     cout << "No component found in the given price range.\n";
                 }
@@ -143,11 +145,31 @@ int main()
                 break;
             }
             break;
-            
+
+
+        case 7: 
+            cout << "Which component do you want to tweak? :-  ";
+            cin >> name;
+            foundByName = i.searchByName(name);
+            if (foundByName == NULL) {
+                cout << "Oops! Couldn't find a component with that name.\n";
+                break; 
+            }
+            cout << "What's the new type? ";
+            cin >> type;
+            cout << "And the new name? ";
+            cin >> freshName;
+            cout << "Finally, the new price? ";
+            cin >> freshPrice;
+            i.tweakComponent(name, type, freshName, freshPrice);
+            break;
+
+
         default:
             cout << "Invalid choice. Please enter a number between 0 and 6.\n";
             break;
-        }        
+        }
+
     }
     return 0;
 }
