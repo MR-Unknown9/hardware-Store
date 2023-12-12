@@ -281,6 +281,26 @@ public:
             }
         }
     }
+
+    void tweakComponent(string name, string freshType, string freshName, int freshPrice)
+    {
+    Component* temp = head;
+
+    while (temp != NULL)
+        {
+        if (temp->name == name)
+            {
+            temp->type = freshType;
+            temp->name = freshName;
+            temp->price = freshPrice;
+            cout << "Done! Your component has been updated.\n";
+            return;
+            }
+        temp = temp->next;
+        }
+
+    cout << "Oops! Couldn't find a component with that name.\n";
+    }
 };
 // don't write any method past this comment
 void printMenu()
