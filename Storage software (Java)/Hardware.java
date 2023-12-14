@@ -1,6 +1,7 @@
 
 
-class Hardware {
+
+public class Hardware {
     String name;
     String manufacturer;
     double price;

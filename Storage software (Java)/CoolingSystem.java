@@ -1,6 +1,7 @@
 
 
-class CoolingSystem extends Hardware {
+
+public class CoolingSystem extends Hardware {
     String type;
 
     CoolingSystem(String name, String manufacturer, double price, String type) {

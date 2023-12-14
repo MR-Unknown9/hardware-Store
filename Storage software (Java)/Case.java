@@ -1,6 +1,5 @@
 
-
-class Case extends Hardware {
+public class Case extends Hardware {
     String size;
     String color;
 

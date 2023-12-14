@@ -1,6 +1,7 @@
 
 
-class StorageUnit extends Hardware {
+
+public class StorageUnit extends Hardware {
     int capacity;
     String type;
 

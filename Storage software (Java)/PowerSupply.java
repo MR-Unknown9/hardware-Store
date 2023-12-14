@@ -1,6 +1,7 @@
 
 
-class PowerSupply extends Hardware {
+
+public class PowerSupply extends Hardware {
     int wattage;
     String efficiency;
 

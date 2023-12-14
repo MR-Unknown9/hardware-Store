@@ -1,12 +1,11 @@
 
-
-class Peripheral extends Hardware {
-    String type;
+public class Peripheral extends Hardware {
     String connection;
+    String type;
 
-    Peripheral(String name, String manufacturer, double price, String type, String connection) {
+    Peripheral(String name, String manufacturer, double price, String connection, String type) {
         super(name, manufacturer, price);
-        this.type = type;
         this.connection = connection;
+        this.type = type;
     }
 }

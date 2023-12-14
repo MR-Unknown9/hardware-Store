@@ -1,6 +1,7 @@
 
 
-class RAM extends Hardware {
+
+public class RAM extends Hardware {
     int capacity;
     int speed;
 

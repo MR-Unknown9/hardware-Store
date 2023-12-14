@@ -1,6 +1,7 @@
 
 
-class Motherboard extends Hardware {
+
+public class Motherboard extends Hardware {
     String model;
 
     Motherboard(String name, String manufacturer, double price, String model) {

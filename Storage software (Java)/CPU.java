@@ -1,6 +1,7 @@
 
 
-class CPU extends Hardware {
+
+public class CPU extends Hardware {
     int cores;
     double frequency;
 
