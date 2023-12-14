@@ -1,10 +1,10 @@
 package Classes;
 
-public class GPU extends Hardware {
+class GPU extends Hardware {
+    int memory;
 
-    GPU(String name, String manufacturer, double price) {
+    GPU(String name, String manufacturer, double price, int memory) {
         super(name, manufacturer, price);
-        // TODO Auto-generated constructor stub
+        this.memory = memory;
     }
-
 }
