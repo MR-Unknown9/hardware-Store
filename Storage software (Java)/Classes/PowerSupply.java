@@ -1,10 +1,12 @@
 package Classes;
 
-public class PowerSupply extends Hardware {
+class PowerSupply extends Hardware {
+    int wattage;
+    String efficiency;
 
-    PowerSupply(String name, String manufacturer, double price) {
+    PowerSupply(String name, String manufacturer, double price, int wattage, String efficiency) {
         super(name, manufacturer, price);
-        // TODO Auto-generated constructor stub
+        this.wattage = wattage;
+        this.efficiency = efficiency;
     }
-
 }

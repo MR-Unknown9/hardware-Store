@@ -1,10 +1,10 @@
 package Classes;
 
-public class CoolingSystem extends Hardware {
+class CoolingSystem extends Hardware {
+    String type;
 
-    CoolingSystem(String name, String manufacturer, double price) {
+    CoolingSystem(String name, String manufacturer, double price, String type) {
         super(name, manufacturer, price);
-        // TODO Auto-generated constructor stub
+        this.type = type;
     }
-
 }

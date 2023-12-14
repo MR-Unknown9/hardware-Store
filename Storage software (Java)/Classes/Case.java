@@ -1,10 +1,12 @@
 package Classes;
 
-public class Case extends Hardware {
+class Case extends Hardware {
+    String size;
+    String color;
 
-    Case(String name, String manufacturer, double price) {
+    Case(String name, String manufacturer, double price, String size, String color) {
         super(name, manufacturer, price);
-        // TODO Auto-generated constructor stub
+        this.size = size;
+        this.color = color;
     }
-
 }
