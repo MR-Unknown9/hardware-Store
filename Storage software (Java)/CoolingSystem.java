@@ -1,4 +1,4 @@
-package Classes;
+
 
 class CoolingSystem extends Hardware {
     String type;

@@ -1,4 +1,4 @@
-package Classes;
+
 
 class Case extends Hardware {
     String size;

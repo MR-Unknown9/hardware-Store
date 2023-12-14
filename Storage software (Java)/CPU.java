@@ -1,4 +1,4 @@
-package Classes;
+
 
 class CPU extends Hardware {
     int cores;
