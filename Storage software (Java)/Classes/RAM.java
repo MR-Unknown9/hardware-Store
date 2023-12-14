@@ -1,10 +1,12 @@
 package Classes;
 
-public class RAM extends Hardware {
+class RAM extends Hardware {
+    int capacity;
+    int speed;
 
-    RAM(String name, String manufacturer, double price) {
+    RAM(String name, String manufacturer, double price, int capacity, int speed) {
         super(name, manufacturer, price);
-        // TODO Auto-generated constructor stub
+        this.capacity = capacity;
+        this.speed = speed;
     }
-
 }
