@@ -316,4 +316,18 @@ public class StorageSystem {
         System.out.println("Case: " + caseCount);
         System.out.println("Peripheral: " + peripheralCount);
     }
+
+    void sortHardwareByPrice() {
+    int n = this.hardwareList.size();
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (this.hardwareList.get(j).price > this.hardwareList.get(j+1).price) {
+                // swap hardwareList[j+1] and hardwareList[j]
+                Hardware temp = this.hardwareList.get(j);
+                this.hardwareList.set(j, this.hardwareList.get(j+1));
+                this.hardwareList.set(j+1, temp);
+            }
+        }
+    }
+    }
 }
