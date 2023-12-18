@@ -9,15 +9,15 @@ public class StorageSystem {
 
     StorageSystem() {
         this.hardwareList = new ArrayList<>();
-        // this.cpuCount = 0;
-        // this.gpuCount = 0;
-        // this.ramCount = 0;
-        // this.storageUnitCount = 0;
-        // this.motherboardCount = 0;
-        // this.powerSupplyCount = 0;
-        // this.coolingSystemCount = 0;
-        // this.caseCount = 0;
-        // this.peripheralCount = 0;
+        this.cpuCount = 0;
+        this.gpuCount = 0;
+        this.ramCount = 0;
+        this.storageUnitCount = 0;
+        this.motherboardCount = 0;
+        this.powerSupplyCount = 0;
+        this.coolingSystemCount = 0;
+        this.caseCount = 0;
+        this.peripheralCount = 0;
 
     }
 
@@ -283,37 +283,51 @@ public class StorageSystem {
         return this.hardwareList.size();
     }
 
-    // void countHardwareByType() {
-    //     for (Hardware hardware : this.hardwareList) {
-    //         if (hardware instanceof CPU) {
-    //             cpuCount++;
-    //         } else if (hardware instanceof GPU) {
-    //             gpuCount++;
-    //         } else if (hardware instanceof RAM) {
-    //             ramCount++;
-    //         } else if (hardware instanceof StorageUnit) {
-    //             storageUnitCount++;
-    //         } else if (hardware instanceof Motherboard) {
-    //             motherboardCount++;
-    //         } else if (hardware instanceof PowerSupply) {
-    //             powerSupplyCount++;
-    //         } else if (hardware instanceof CoolingSystem) {
-    //             coolingSystemCount++;
-    //         } else if (hardware instanceof Case) {
-    //             caseCount++;
-    //         } else if (hardware instanceof Peripheral) {
-    //             peripheralCount++;
-    //         }
-    //     }
+    void countHardwareByType() {
+        for (Hardware hardware : this.hardwareList) {
+            if (hardware instanceof CPU) {
+                cpuCount++;
+            } else if (hardware instanceof GPU) {
+                gpuCount++;
+            } else if (hardware instanceof RAM) {
+                ramCount++;
+            } else if (hardware instanceof StorageUnit) {
+                storageUnitCount++;
+            } else if (hardware instanceof Motherboard) {
+                motherboardCount++;
+            } else if (hardware instanceof PowerSupply) {
+                powerSupplyCount++;
+            } else if (hardware instanceof CoolingSystem) {
+                coolingSystemCount++;
+            } else if (hardware instanceof Case) {
+                caseCount++;
+            } else if (hardware instanceof Peripheral) {
+                peripheralCount++;
+            }
+        }
 
-    //     System.out.println("CPU: " + cpuCount);
-    //     System.out.println("GPU: " + gpuCount);
-    //     System.out.println("RAM: " + ramCount);
-    //     System.out.println("Storage Unit: " + storageUnitCount);
-    //     System.out.println("Motherboard: " + motherboardCount);
-    //     System.out.println("Power Supply: " + powerSupplyCount);
-    //     System.out.println("Cooling System: " + coolingSystemCount);
-    //     System.out.println("Case: " + caseCount);
-    //     System.out.println("Peripheral: " + peripheralCount);
-    // }
+        System.out.println("CPU: " + cpuCount);
+        System.out.println("GPU: " + gpuCount);
+        System.out.println("RAM: " + ramCount);
+        System.out.println("Storage Unit: " + storageUnitCount);
+        System.out.println("Motherboard: " + motherboardCount);
+        System.out.println("Power Supply: " + powerSupplyCount);
+        System.out.println("Cooling System: " + coolingSystemCount);
+        System.out.println("Case: " + caseCount);
+        System.out.println("Peripheral: " + peripheralCount);
+    }
+
+    void sortHardwareByPrice() {
+        int n = this.hardwareList.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (this.hardwareList.get(j).price > this.hardwareList.get(j + 1).price) {
+                    // swap hardwareList[j+1] and hardwareList[j]
+                    Hardware temp = this.hardwareList.get(j);
+                    this.hardwareList.set(j, this.hardwareList.get(j + 1));
+                    this.hardwareList.set(j + 1, temp);
+                }
+            }
+        }
+    }
 }
