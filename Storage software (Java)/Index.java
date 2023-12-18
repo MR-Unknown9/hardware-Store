@@ -12,10 +12,13 @@ public class Index {
             System.out.println("3. Search for hardware");
             System.out.println("4. Display all hardware");
             System.out.println("5. Count hardware");
-            System.out.println("6. Exit");
+            System.out.println("6. Sort By Price");
+            System.out.println("7. Exit");
+            
 
             int option = scanner.nextInt();
             scanner.nextLine();
+
 
             switch (option) {
                 case 1:
@@ -26,6 +29,7 @@ public class Index {
                     String name = scanner.nextLine();
                     storageSystem.removeHardwareByName(name);
                     break;
+
                 case 3:
                     System.out.println("Enter hardware name to search:");
                     name = scanner.nextLine();
@@ -41,16 +45,20 @@ public class Index {
                     storageSystem.display();
                     break;
                 case 5:
-                    // storageSystem.countHardwareByType();
-                    System.out.println("\nTotal: " + storageSystem.count());
+                    System.out.println("Counting hardware by type:");
+                    storageSystem.countHardwareByType();
                     break;
                 case 6:
+                    storageSystem.sortHardwareByPrice();
+                    System.out.println("Hardware sorted by price.");
+                    storageSystem.display();
+                    break;
+                case 7:
                     System.out.println("Exiting...");
-                    scanner.close();
-                    return;
+                    break;
                 default:
                     System.out.println("Invalid option. Please try again.");
-                    break;
+                
             }
         }
     }
