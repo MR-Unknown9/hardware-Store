@@ -4,9 +4,21 @@ import java.util.Scanner;
 
 public class StorageSystem {
     List<Hardware> hardwareList;
+    int cpuCount, gpuCount, ramCount, storageUnitCount, motherboardCount, powerSupplyCount, coolingSystemCount,
+            caseCount, peripheralCount;
 
     StorageSystem() {
         this.hardwareList = new ArrayList<>();
+        this.cpuCount = 0;
+        this.gpuCount = 0;
+        this.ramCount = 0;
+        this.storageUnitCount = 0;
+        this.motherboardCount = 0;
+        this.powerSupplyCount = 0;
+        this.coolingSystemCount = 0;
+        this.caseCount = 0;
+        this.peripheralCount = 0;
+
     }
 
     void add() {
@@ -269,5 +281,39 @@ public class StorageSystem {
 
     public int count() {
         return this.hardwareList.size();
+    }
+
+    void countHardwareByType() {
+        for (Hardware hardware : this.hardwareList) {
+            if (hardware instanceof CPU) {
+                cpuCount++;
+            } else if (hardware instanceof GPU) {
+                gpuCount++;
+            } else if (hardware instanceof RAM) {
+                ramCount++;
+            } else if (hardware instanceof StorageUnit) {
+                storageUnitCount++;
+            } else if (hardware instanceof Motherboard) {
+                motherboardCount++;
+            } else if (hardware instanceof PowerSupply) {
+                powerSupplyCount++;
+            } else if (hardware instanceof CoolingSystem) {
+                coolingSystemCount++;
+            } else if (hardware instanceof Case) {
+                caseCount++;
+            } else if (hardware instanceof Peripheral) {
+                peripheralCount++;
+            }
+        }
+
+        System.out.println("CPU: " + cpuCount);
+        System.out.println("GPU: " + gpuCount);
+        System.out.println("RAM: " + ramCount);
+        System.out.println("Storage Unit: " + storageUnitCount);
+        System.out.println("Motherboard: " + motherboardCount);
+        System.out.println("Power Supply: " + powerSupplyCount);
+        System.out.println("Cooling System: " + coolingSystemCount);
+        System.out.println("Case: " + caseCount);
+        System.out.println("Peripheral: " + peripheralCount);
     }
 }

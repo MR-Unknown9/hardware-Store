@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Index {
     public static void main(String[] args) {
         StorageSystem storageSystem = new StorageSystem();
@@ -42,7 +41,8 @@ public class Index {
                     storageSystem.display();
                     break;
                 case 5:
-                    System.out.println("Count: " + storageSystem.count());
+                    storageSystem.countHardwareByType();
+                    System.out.println("\nTotal: " + storageSystem.count());
                     break;
                 case 6:
                     System.out.println("Exiting...");
@@ -50,6 +50,7 @@ public class Index {
                     return;
                 default:
                     System.out.println("Invalid option. Please try again.");
+                    break;
             }
         }
     }

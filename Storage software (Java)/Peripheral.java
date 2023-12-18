@@ -1,5 +1,4 @@
-
-public class Peripheral extends Hardware {
+class Peripheral extends Hardware {
     String connection;
     String type;
 
