@@ -41,7 +41,7 @@ public class Index {
                     storageSystem.display();
                     break;
                 case 5:
-                    storageSystem.countHardwareByType();
+                    // storageSystem.countHardwareByType();
                     System.out.println("\nTotal: " + storageSystem.count());
                     break;
                 case 6:
