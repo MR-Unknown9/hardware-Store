@@ -33,12 +33,12 @@ public:
         if (!isEmpty())
         {
             Component *temp = head;
-            while (temp->next != NULL)
+            while (temp != NULL)
             {
                 size++;
                 temp = temp->next;
             }
-            size++;
+            // size++;
         }
         return size;
     }
@@ -73,11 +73,11 @@ public:
 
                 temp = temp->next;
             }
-            cout << "Cpu: " << cpu << "\n";
-            cout << "Gpu: " << gpu << "\n";
-            cout << "Mb: " << mb << "\n";
-            cout << "Psu: " << psu << "\n";
-            cout << "ram: " << ram << "\n";
+            cout << "Cpu: " << cpu << "\n"
+                 << "Gpu: " << gpu << "\n"
+                 << "Mb: " << mb << "\n"
+                 << "Psu: " << psu << "\n"
+                 << "ram: " << ram << "\n";
         }
     }
 
@@ -103,8 +103,8 @@ public:
             return;
         }
 
-        if (current->name == name)
-        { // في حالة ان الي هو عايو يمسحة اول حاجة
+        if (current->name == name) // في حالة ان الي هو عايو يمسحة اول حاجة
+        {
             head = current->next;
             free(current);
             return;
@@ -116,10 +116,8 @@ public:
             current = current->next;
         }
 
-        if (current == NULL)
-        { // في حالة ان الي عايز يمسحة مش موجود اصلا
+        if (current == NULL) // في حالة ان الي عايز يمسحة مش موجود اصلا
             cout << "component not found.\n";
-        }
 
         previous->next = current->next;
         free(current);
@@ -136,6 +134,7 @@ public:
                 cout << "Type: " << temp->type
                      << ", Name: " << temp->name
                      << ", Price: " << temp->price << "\n";
+
                 temp = temp->next;
             }
         }
@@ -143,47 +142,43 @@ public:
             cout << "It is empty for now\n";
     }
 
-
-
-    Component* searchByName(string name)
+    Component *searchByName(string name)
     {
-        Component* current = head;
- 
+        Component *current = head;
+
         while (current != NULL)
         {
             if (current->name == name)
-            {
-                return current; 
-            }
+                return current;
+
             current = current->next;
         }
- 
-        return NULL; 
+
+        return NULL;
     }
- 
-    Component* searchByType(string type)
+
+    Component *searchByType(string type)
     {
         bool found = false;
-        
-        for (Component* current = head; current != NULL; current = current->next)
+
+        for (Component *current = head; current != NULL; current = current->next)
         {
             if (current->type == type)
             {
-                cout << "Name: " << current->name << ", Price: " << current->price << ", Type: " << current->type << "\n";
+                cout << "Name: " << current->name
+                     << ", Price: " << current->price
+                     << ", Type: " << current->type << "\n";
+
                 found = true;
             }
         }
 
         if (!found)
-        {
-                cout << "No component found with the given type.\n";
-        }
-        
-        
- 
-        return NULL; 
+            cout << "No component found with the given type.\n";
+
+        return NULL;
     }
- 
+
     bool searchByPriceRange(int minPrice, int maxPrice)
     {
         if (isEmpty())
@@ -191,25 +186,25 @@ public:
             cout << "Inventory is empty.\n";
             return false;
         }
- 
-        Component* current = head;
+
+        Component *current = head;
         bool found = false;
- 
+
         while (current != NULL)
         {
             if (current->price >= minPrice && current->price <= maxPrice)
             {
                 found = 1;
-                cout << "Name: " << current->name << " Price: " << current->price << " Type: " << current->type << "\n";
+                cout << "Name: " << current->name
+                     << " Price: " << current->price
+                     << " Type: " << current->type << "\n";
             }
             current = current->next;
         }
- 
+
         if (!found)
-        {
             cout << "There is no component in this range!\n";
-        }
- 
+
         return found;
     }
 
@@ -284,22 +279,22 @@ public:
 
     void tweakComponent(string name, string freshType, string freshName, int freshPrice)
     {
-    Component* temp = head;
+        Component *temp = head;
 
-    while (temp != NULL)
+        while (temp != NULL)
         {
-        if (temp->name == name)
+            if (temp->name == name)
             {
-            temp->type = freshType;
-            temp->name = freshName;
-            temp->price = freshPrice;
-            cout << "Done! Your component has been updated.\n";
-            return;
+                temp->type = freshType;
+                temp->name = freshName;
+                temp->price = freshPrice;
+                cout << "Done! Your component has been updated.\n";
+                return;
             }
-        temp = temp->next;
+            temp = temp->next;
         }
 
-    cout << "Oops! Couldn't find a component with that name.\n";
+        cout << "Oops! Couldn't find a component with that name.\n";
     }
 };
 // don't write any method past this comment
@@ -312,6 +307,8 @@ void printMenu()
          << "4. Sort inventory\n"
          << "5. Count inventory\n"
          << "6. Search for a component\n"
+         << "7. Tweak component\n"
+         << "8. Save and Continue\n"
          << "0. Exit\n"
          << "*********************************************************\n"
          << "Enter your choice: ";
