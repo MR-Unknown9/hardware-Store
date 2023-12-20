@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+  </head>
+  <body>
+    <header>
+      <ul class="addressBar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </header>
+    <style>
+      .addressBar {
+        list-style-type: none;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        float: right;
+      }
+
+      .addressBar,
+      li,
+      a {
+        color: black;
+        text-decoration: none;
+        margin: 0 20px;
+        position: relative;
+        font-size: 17px;
+      }
+
+      .addressBar,
+      li {
+        display: inline-block;
+        margin: 10px 20px;
+      }
+      .address li a::after {
+        content: "";
+        width: 0;
+        height: 3px;
+        background: #0800ff;
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        transition: 0.5s;
+      }
+      .address li a:hover::after {
+        width: 100%;
+      }
+    </style>
+  </body>
+</html>

@@ -1,163 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="logIn.css">
-</head>
-<body>
-    
-<footer  class="don" >
-
-    <div class="wrapper">
-      <nav class="nav">
+    <link rel="stylesheet" href="logIn.css" />
+  </head>
+  <body>
+    <footer class="don">
+      <div class="wrapper">
+        <nav class="nav">
           <div class="nav-logo">
-        </a href="#"><img src="pngegg.png" class="logo"></a>
-              <p></p>
+            <a href="#"><img src="pngegg.png" class="logo" /></a>
+            <p></p>
           </div>
           <div class="nav-menu" id="navMenu">
-              <ul>
-                  <li><a href="#" class="link active"></a></li>
-                  <li><a href="index.html" class="link">Home</a></li>
-                  <li><a href="#" class="link">Products</a></li>
-                  <li><a href="#" class="link">News</a></li>
-                  <li><a href="#" class="link">About</a></li>
-                  <li><a href="#" class="link">Contact</a></li>
-              </ul>
+            <ul>
+              <li><a href="#" class="link active"></a></li>
+              <li><a href="home.html" class="link">Home</a></li>
+              <li><a href="#" class="link">Products</a></li>
+              <li><a href="#" class="link">News</a></li>
+              <li><a href="about.html" class="link">About</a></li>
+              <li><a href="#" class="link">Contact</a></li>
+            </ul>
           </div>
           <div class="nav-button">
-              <button class="btn white-btn" id="loginBtn" onclick="login()">Log In</button>
-              <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            <button class="btn white-btn" id="loginBtn" onclick="login()">
+              Log In
+            </button>
+            <button class="btn" id="registerBtn" onclick="register()">
+              Sign Up
+            </button>
           </div>
-          <div class="nav-menu-btn">
-          </div>
-      </nav>
-  
-  <!----------------------------- Form box ----------------------------------->    
-      <div class="form-box">
-  
-             <!------------------- login form -------------------------->
-             
-             <div class="login-container" id="login">
-                 <div class="top">
-                     <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
-                     <header>Login</header>
-                  </div>
-                  <form action="index.html">
+          <div class="nav-menu-btn"></div>
+        </nav>
+
+        <!----------------------------- Form box ----------------------------------->
+        <div class="form-box">
+          <!------------------- login form -------------------------->
+
+          <div class="login-container" id="login">
+            <div class="top">
+              <span
+                >Don't have an account?
+                <a href="#" onclick="register()">Sign Up</a></span
+              >
+              <header>Login</header>
+            </div>
+            <form action="index.html">
               <div class="input-box">
-                 <input type="text" class="input-field" placeholder="Username or Email">
-                 </div>
-                 <div class="input-box">
-                    <input type="password" class="input-field" placeholder="Password">
-              </div>
-              <div class="input-box">
-                  <input type="submit" class="submit" value="Sign In">
-                 </div>
-                 <div class="two-col">
-                    <div class="one">
-                      <input type="checkbox" id="login-check">
-                      <label for="login-check"> Remember Me</label>
-                  </div>
-                  <div class="two">
-                      <label><a href="#">Forgot password?</a></label>
-                  </div>
-              </div>
-           </form>
-          </div>
-  
-          <!------------------- registration form -------------------------->
-          <div class="register-container" id="register">
-              <div class="top">
-                  <span>Have an account? <a href="#" onclick="login()">Login</a></span>
-                  <header>Sign Up</header>
-              </div>
-              
-              <form class="registeration-form">
-              <div class="two-forms">
-                  <div class="input-box">
-                      <input type="text" class="input-field" placeholder="Firstname">
-                      <i class="bx bx-user"></i>
-                  </div>
-                  <div class="input-box">
-                      <input type="text" class="input-field" placeholder="Lastname">
-                      <i class="bx bx-user"></i>
-                  </div>
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Username or Email"
+                />
               </div>
               <div class="input-box">
-                  <input type="text" class="input-field" placeholder="Email">
-                  <i class="bx bx-envelope"></i>
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Password"
+                />
               </div>
               <div class="input-box">
-                  <input type="password" class="input-field" placeholder="Password">
-                  <i class="bx bx-lock-alt"></i>
-              </div>
-              <div class="input-box">
-                  <input type="password" class="input-field" placeholder="Confirm password">
-                  <i class="bx bx-lock-alt"></i>
+                <input type="submit" class="submit" value="Sign In" />
               </div>
               <div class="two-col">
-                  <div class="one">
-                      <input type="checkbox" id="register-check">
-                      <label for="register-check"> Remember Me</label>
-                  </div>
-                  <div class="two">
-                      <input type="checkbox"  id="accept-terms">
-                      <label for="accept-terms"><a href="#">Terms & conditions</a></label>
-                  </div>
+                <div class="one">
+                  <input type="checkbox" id="login-check" />
+                  <label for="login-check"> Remember Me</label>
+                </div>
+                <div class="two">
+                  <label><a href="#">Forgot password?</a></label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!------------------- registration form -------------------------->
+          <div class="register-container" id="register">
+            <div class="top">
+              <span
+                >Have an account? <a href="#" onclick="login()">Login</a></span
+              >
+              <header>Sign Up</header>
+            </div>
+
+            <form class="registeration-form">
+              <div class="two-forms">
+                <div class="input-box">
+                  <input
+                    type="text"
+                    class="input-field"
+                    placeholder="Firstname"
+                  />
+                  <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                  <input
+                    type="text"
+                    class="input-field"
+                    placeholder="Lastname"
+                  />
+                  <i class="bx bx-user"></i>
+                </div>
               </div>
               <div class="input-box">
-                  <input type="submit" class="submit" value="Register">
+                <input type="text" class="input-field" placeholder="Email" />
+                <i class="bx bx-envelope"></i>
               </div>
-          </form>
+              <div class="input-box">
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Password"
+                />
+                <i class="bx bx-lock-alt"></i>
+              </div>
+              <div class="input-box">
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Confirm password"
+                />
+                <i class="bx bx-lock-alt"></i>
+              </div>
+              <div class="two-col">
+                <div class="one">
+                  <input type="checkbox" id="register-check" />
+                  <label for="register-check"> Remember Me</label>
+                </div>
+                <div class="two">
+                  <input type="checkbox" id="accept-terms" />
+                  <label for="accept-terms"
+                    ><a href="#">Terms & conditions</a></label
+                  >
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="submit" class="submit" value="Register" />
+              </div>
+            </form>
           </div>
+        </div>
       </div>
-  </div>   
-  
-  
-  <script>
-     
-     function myMenuFunction() {
-      var i = document.getElementById("navMenu");
-  
-      if(i.className === "nav-menu") {
-          i.className += " responsive";
-      } else {
-          i.className = "nav-menu";
-      }
-     }
-   
-  </script>
-  
-  <script>
-  
-      var a = document.getElementById("loginBtn");
-      var b = document.getElementById("registerBtn");
-      var x = document.getElementById("login");
-      var y = document.getElementById("register");
-  
-      function login() {
+
+      <script>
+        function myMenuFunction() {
+          var i = document.getElementById("navMenu");
+
+          if (i.className === "nav-menu") {
+            i.className += " responsive";
+          } else {
+            i.className = "nav-menu";
+          }
+        }
+      </script>
+
+      <script>
+        var a = document.getElementById("loginBtn");
+        var b = document.getElementById("registerBtn");
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+
+        function login() {
           x.style.left = "4px";
           y.style.right = "-520px";
           a.className += " white-btn";
           b.className = "btn";
           x.style.opacity = 1;
           y.style.opacity = 0;
-      }
-  
-      function register() {
+        }
+
+        function register() {
           x.style.left = "-510px";
           y.style.right = "5px";
           a.className = "btn";
           b.className += " white-btn";
           x.style.opacity = 0;
           y.style.opacity = 1;
-      }
-  
-  </script>
-  
-  
-  
-  </footer>
-</body>
+        }
+      </script>
+    </footer>
+  </body>
 </html>
