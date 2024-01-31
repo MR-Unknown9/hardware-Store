@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: black;
+}
+
+body {
+  background-color: black;
+  background: url("images/1920x1080-76039-Shingeki-No-Kyojin-Eren-Yeager-Reiner-Braun-TitanShingeki.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  height: 100px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
+  z-index: 100;
+}
+
+.logo {
+  width: 170px;
+  padding: 30px 0;
+}
+
+.nav-logo p {
+  color: white;
+  font-size: 25px;
+  font-weight: 600px;
+}
+
+.nav-menu ul {
+  display: flex;
+}
+
+.nav-menu ul li {
+  list-style-type: none;
+}
+
+.nav-menu ul li .link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  padding-bottom: 15px;
+  margin: 0 25px;
+}
+
+.link:hover,
+.active {
+  border-bottom: 2px solid #fff;
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+.news {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.phones-news-title {
+  color: white;
+  font-size: 50px;
+  margin-top: 30px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.imgs {
+  display: flex;
+  flex-direction: row;
+}
+
+.imgs .imgscol {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgs img {
+  width: 200px;
+  margin: 20px;
+}
+
+.imgs2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgcontent {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgcontent p {
+  color: white;
+  margin-left: 20px;
+  width: 200px;
+}
+
+.imgcontent button {
+  color: black;
+  background-color: white;
+  font-size: 20px;
+  margin: 10px 20px;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.imgcontent button:hover {
+  background-color: #5670b1;
+}
+
+.back button {
+  color: black;
+  background-color: white;
+  font-size: 20px;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.back button:hover {
+  background-color: #5670b1;
+}
+
+.latest-news {
+  color: white;
+  margin-top: 30px;
+}
+
+.latest-news h2 {
+  font-size: 50px;
+}
+
+.latest-news .news-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.latest-news img {
+  width: 200px;
+  margin: 20px;
+}
+
+.latest-news h3 {
+  color: white;
+  margin-top: 10px;
+}
+
+.latest-news p {
+  color: white;
+  margin-left: 20px;
+  width: 200px;
+}
+
+.latest-news a {
+  color: black;
+  background-color: white;
+  font-size: 20px;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.latest-news a:hover {
+  background-color: #5670b1;
+}
+
+.Readmore button {
+  color: black;
+  padding-top: 2px;
+  background-color: white;
+  font-size: 20px;
+  margin: 5px 1px;
+  padding: 5px;
+  border-radius: 15px;
+  border: none;
+}
+
+.latest-1 {
+  font-size: xx-large;
+  font-weight: bold;
+}

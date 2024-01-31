@@ -1,5 +1,0 @@
-﻿  it1.cpp
-C:\Users\David\source\repos\it1\it1\it1.cpp(91,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\source\repos\it1\it1\it1.cpp(140,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\source\repos\it1\it1\it1.cpp(222,9): warning C4101: 'n': unreferenced local variable
-LINK : fatal error LNK1168: cannot open C:\Users\David\source\repos\it1\x64\Debug\it1.exe for writing

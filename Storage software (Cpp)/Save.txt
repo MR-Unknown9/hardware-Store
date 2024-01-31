@@ -1,1 +1,0 @@
-Type: gpu Name: i9-9900k Price: 450

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            background-size: 200%;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
+            z-index: 100;
+        }
+
+        .logo {
+            width: 170px;
+            padding: 30PX 0;
+        }
+
+        .nav-menu ul {
+            display: flex;
+        }
+
+        .nav-menu ul li {
+            list-style-type: none;
+        }
+
+        .nav-menu ul li .link {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            padding-bottom: 15px;
+            margin: 0 25px;
+        }
+
+        .nav-menu ul li .link:hover {
+            padding: 15px;
+            text-decoration: underline rgb(95, 95, 255) 4px;
+            transition: 0.8s;
+        }
+
+
+        .content {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 20px;
+        }
+
+        .content div {
+            background-color: transparent;
+            margin: 100px;
+            padding: 1px;
+            text-align: center;
+        }
+
+        .content div a:hover {
+            background-color: rgb(216, 158, 13);
+            color: black;
+            border-radius: 10px;
+            padding: 5px;
+            text-decoration: none;
+        }
+
+        .content img {
+            width: 390px;
+            height: 450px;
+            border-radius: 20px;
+        }
+
+        .content p {
+                margin: 15px 0px 0px 5px;
+                color: rgb(255, 255, 255);
+                font-weight: 700;
+                font-size: 25px;
+            }
+
+            .content a {
+                color: rgb(230, 222, 222);
+                font-size: 20px;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+
+            .content .card {
+            background-color: transparent;
+            margin: 100px;
+            padding: 1px;
+            text-align: center;
+            box-shadow: 0 0 15px 10px rgba(5, 31, 163, 0.305);
+            border-radius: 20px;
+            }
+
+        .anim {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: moveup 0.5s linear forwards;
+        }
+
+        .anm2 {
+            animation-delay: 1s;
+        }
+
+        .anm3 {
+            animation-delay: 1.5s;
+        }
+
+        .anm4 {
+            animation-delay: 2s;
+        }
+
+        .anm5 {
+            animation-delay: 2.5s;
+        }
+
+        .anm6 {
+            animation-delay: 3s;
+        }
+
+        @keyframes moveup {
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-logo">
+            </a href="#"><img src="images/pngegg.png" class="logo"></a>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link active"></a></li>
+                <li><a href="home.html" class="link">Home</a></li>
+                <li><a href="product.html" class="link">Products</a></li>
+                <li><a href="news.html" class="link">News</a></li>
+                <li><a href="about.html" class="link">About</a></li>
+                <li><a href="contact.html" class="link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="card anim ">
+            <img src="images/Samsung-Galaxy-S22-Ultra-4.png">
+            <p>
+                The Samsung Galaxy S22 specs are top-notch including a Snapdragon 8 Gen 1 chipset,
+                8GB RAM coupled with 128/256GB storage, and a 3700mAh battery with 25W charging speed.
+                The phone sports a 6.1-inch Dynamic AMOLED display with an adaptive 120Hz refresh rate.
+                In the camera department there is a Triple-sensor setup is present.
+            </p>
+            <a href="https://www.amazon.eg/-/en/Samsung-Galaxy-Mobile-Android-Smartphone/dp/B09RQTHYK6"> Buy From Here
+            </a>
+        </div>
+
+        <div class="card anim anm2">
+            <img src="images/Samsung-Galaxy-M53-5G-1.png">
+            <p>
+                The Samsung Galaxy M53 5G comes with 6.7-inch AMOLED display with 120Hz refresh rate an MediaTek
+                Dimensity 900 processor. Specs also include 5000mAH battery with 25W charging speed, Quad camera setup
+                on the back with 108MO main sensor and 32MP front selfie camera.
+            </p>
+            <a href="https://www.amazon.eg/-/en/Samsung-Storage-Adapter-Purchased-Separately/dp/B09XJ3MBTL?th=1">Buy
+                From Here</a>
+        </div>
+
+        <div class="card anim anm3">
+            <img src="images/Samsung-Galaxy-Z-Flip-4-5.png">
+            <p>
+                The Samsung Galaxy Z Flip 5 comes with 6.7-inch Dynamic AMOLED display with 120Hz refresh rate and
+                Qualcomm Snapdragon 8 Gen 2 processor. Specs also include 3.4-inch Super AMOLED cover display, 3700mAh
+                battery and Dual camera setup on the back.
+            </p>
+            <a
+                href="https://www.amazon.eg/-/en/Samsung-Galaxy-Flip5-Android-Smartphone/dp/B0CC9YCSHF/ref=asc_df_B0CC9YCSHF/?tag=egoshpadde-21&linkCode=df0&hvadid=620920338608&hvpos=&hvnetw=g&hvrand=14916045405685669026&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9112488&hvtargid=pla-2197966332881&mcid=39d31d9b30f33be39b58af47b6594827&th=1">Buy
+                From Here</a>
+        </div>
+
+        <div class="card anim anm4">
+            <img src="images/Samsung-Galaxy-Watch-3-Titan-6.png" alt="Dragon Image 4">
+            <p>
+                Samsung Galaxy Watch 3 is available in two sizes - 45mm and 41mm. The bigger version is available with a
+                stainless steel or titanium case, a Super AMOLED display, and 8GB storage. The watch has a SpO2 sensor
+                that measures blood oxygen levels. The Galaxy Watch 3 (45mm) will be available on August 6 in Wi-Fi only
+                or LTE variants.
+            </p>
+            <a
+                href="https://www.amazon.eg/-/en/Samsung-SM-R910NZBAMEA-Galaxy-Version-Sapphire/dp/B0B8J1BWMN/ref=asc_df_B0B8J1BWMN/?tag=egoshpadde-21&linkCode=df0&hvadid=545040591002&hvpos=&hvnetw=g&hvrand=13836032969508150415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9112488&hvtargid=pla-1723427037263&psc=1&mcid=7745ea874113318fa7fbdc4727cfa295">Buy
+                From Here</a>
+        </div>
+
+        <div class="card anim anm5">
+            <img src="images/Samsung-Galaxy-Watch-4-40mm-12.png">
+            <p>
+                The Samsung Galaxy Watch 4 (44mm) is the bigger sized watch in the Galaxy Watch 4 family and it comes
+                with Super AMOLED display, heart rhythm monitoring, sleep tracking and more. The specs are also include
+                a new 5nm processor for improved battery life and a price tag between €380 to €400
+            </p>
+            <a
+                href="https://www.amazon.eg/-/en/Samsung-SM-R900NZDAMEA-Galaxy-Watch5-version/dp/B0B8J3Y427/ref=asc_df_B0B8J3Y427/?tag=egoshpadde-21&linkCode=df0&hvadid=545148330436&hvpos=&hvnetw=g&hvrand=7434302914362671616&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9112488&hvtargid=pla-1723682389393&mcid=2cb7b0c25a0839d6badba1235a439495&th=1">Buy
+                From Here</a>
+        </div>
+
+        <div class="card anim anm6">
+            <img src="images/Samsung-Galaxy-Watch-5-Pro-2.png">
+            <p>
+                The Samsung Galaxy Watch 5 Pro comes with 1.4-inch Super AMOLED display, Titanium case and 590mAh
+                battery.
+            </p>
+            <a
+                href="https://www.noon.com/egypt-en/galaxy-watch-5-pro-45mm-black-titanium/N53339185A/p/?o=fe38a11d790d6dfb&utm_source=c1000087l&utm_medium=cpc&utm_campaign=C1000151430N_eg_en_web_performancemaxxelectronicsaccessoriesxalwaysonx18082022_noon_web_c1000087l_remarketing_plassc_&gad_source=1&gclid=Cj0KCQiA4Y-sBhC6ARIsAGXF1g51WmXCAT8wqXf9GL3eRXzauWrg3qEl1jpv8a0pxrYMfrT8NYM0GBIaAgLAEALw_wcB">Buy
+                From Here</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

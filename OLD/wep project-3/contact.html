@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            background-color: black;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
+            z-index: 100;
+        }
+
+        .logo {
+            width: 170px;
+            padding: 30PX 0;
+        }
+
+        .nav-menu ul {
+            display: flex;
+        }
+
+        .nav-menu ul li {
+            list-style-type: none;
+        }
+
+        .nav-menu ul li .link {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            padding-bottom: 15px;
+            margin: 0 25px;
+        }
+
+        .nav-menu ul li .link:hover {
+            padding: 15px;
+            text-decoration: underline rgb(95, 95, 255) 4px;
+            transition: 0.8s;
+        }
+
+        .content .sup-card {
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content .sup-card img {
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .content .sup-card p {
+            position: absolute;
+            color: #fff;
+            background: none;
+            font-size: 80px;
+        }
+
+        .content .c-card {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .content .c-card .whatsapp {
+            background-color: rgb(192, 192, 192, 0.3);
+            height: fit-content;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content .c-card .whatsapp a img {
+            margin: 10px;
+            width: 80px;
+            background: none
+        }
+
+        .content .c-card .whatsapp a {
+            background: none;
+        }
+
+        .content .c-card p {
+            background: none;
+            color: white;
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .content .c-card .email {
+            background-color: rgb(192, 192, 192, 0.3);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content .c-card .email a img {
+            margin: 10px;
+            width: 80px;
+            background: none;
+            cursor: pointer;
+        }
+
+        .content .c-card .email a {
+            background: none;
+        }
+
+        .info {
+            height: 100%;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .info form {
+            width: 50%;
+            background-color: rgb(192, 192, 192, 0.3);
+            display: flex;
+            justify-content: space-around;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .info form input {
+            flex-basis: calc(50% - 20px);
+            margin: 10px;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .info form button {
+            margin-top: 10px;
+            background: none;
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+            border: none;
+            background-color: black;
+            padding: 15px;
+            border-radius: 10px 0px 10px 10px;
+            cursor: pointer;
+        }
+
+        .info form button:hover {
+            background-color: white;
+            color: black;
+            transition: 1s;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .info form select {
+            margin-top: 5px;
+            color: white;
+            flex-basis: calc(50% - 20px);
+            height: 40px;
+        }
+
+        .info form select option {
+            background: none;
+            color: white;
+        }
+
+        .info form textarea {
+            margin-top: 10px;
+            color: white;
+            flex-basis: calc(100% - 20px);
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-logo">
+            </a href="#"><img src="images/pngegg.png" class="logo"></a>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link active"></a></li>
+                <li><a href="home.html" class="link">Home</a></li>
+                <li><a href="product.html" class="link">Products</a></li>
+                <li><a href="news.html" class="link">News</a></li>
+                <li><a href="about.html" class="link">About</a></li>
+                <li><a href="contact.html" class="link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="sup-card">
+            <img src="images/contact-banner-pc.png">
+            <p>Contact With Us</p>
+        </div>
+        <div class="c-card">
+            <div class="email" onclick="show()">
+                <a><img src="images/email-svgrepo-com.svg"></a>
+                <p>Email Product Support Send an email, and get a next response.</p>
+            </div>
+            <div class="whatsapp">
+                <a href="https://api.whatsapp.com/send/?phone=%2B971547267864&text&type=phone_number&app_absent=0""><img src="
+                    images/whatsapp-icon-logo-svgrepo-com.svg"></a>
+                <p>WhatsApp Us Send us the message and receive a quick reply.</p>
+            </div>
+        </div>
+        <div class="info" id="showinfo">
+            <form>
+                <input type="text" placeholder="First Name"></input>
+                <input type="text" placeholder="Last Name"></input>
+                <input type="email" placeholder="Email"></input>
+                <input type="number" placeholder="Contact Number"></input>
+                <select>
+                    <option>Phones</option>
+                    <option>Tablets</option>
+                    <option>laptops</option>
+                    <option>Tv</option>
+                </select>
+                <input type="text" placeholder="Model Code/Name">
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function show() {
+            var showt = document.getElementById("showinfo");
+            showt.style.display = "flex";
+        }
+    </script>
+</body>
+
+</html>
