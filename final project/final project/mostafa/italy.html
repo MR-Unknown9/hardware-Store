@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourism in italy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #20242f;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #20242f;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .dodo {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .place {
+      margin-bottom: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 10px 10px rgb(238, 238, 18);
+      ;
+    }
+
+    .place img {
+      width: 100%;
+      height: auto;
+    }
+
+    .place-info {
+      padding: 20px;
+    }
+
+    .place-info h2 {
+      margin-top: 0;
+    }
+
+    html,
+    body {
+      display: grid;
+      height: 100%;
+      place-items: center;
+      text-align: center;
+      background: #000;
+    }
+
+    .container {
+
+      position: relative;
+      width: 400px;
+      background: #111;
+      padding: 20px 30px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+    }
+
+    .container .post {
+      display: none;
+    }
+
+    .container .text {
+      font-size: 25px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .container .edit {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      font-size: 16px;
+      color: #666;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .container .edit:hover {
+      text-decoration: underline;
+    }
+
+    .container .star-widget input {
+      display: none;
+    }
+
+    .star-widget label {
+      font-size: 40px;
+      color: #444;
+      padding: 10px;
+      float: right;
+      transition: all 0.2s ease;
+    }
+
+    input:not(:checked)~label:hover,
+    input:not(:checked)~label:hover~label {
+      color: #fd4;
+    }
+
+    input:checked~label {
+      color: #fd4;
+    }
+
+    input#rate-5:checked~label {
+      color: #fe7;
+      text-shadow: 0 0 20px #952;
+    }
+
+    #rate-1:checked~form header:before {
+      content: "I just hate it 😠";
+    }
+
+    #rate-2:checked~form header:before {
+      content: "I don't like it 😒";
+    }
+
+    #rate-3:checked~form header:before {
+      content: "It is awesome 😄";
+    }
+
+    #rate-4:checked~form header:before {
+      content: "I just like it 😎";
+    }
+
+    #rate-5:checked~form header:before {
+      content: "I just love it 🥰";
+    }
+
+    .container form {
+      display: none;
+    }
+
+    input:checked~form {
+      display: block;
+    }
+
+    form header {
+      width: 100%;
+      font-size: 25px;
+      color: #fe7;
+      font-weight: 500;
+      margin: 5px 0 20px 0;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    form .textarea {
+      height: 100px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    form .textarea textarea {
+      height: 100%;
+      width: 100%;
+      outline: none;
+      color: #eee;
+      border: 1px solid #333;
+      background: #222;
+      padding: 10px;
+      font-size: 17px;
+      resize: none;
+    }
+
+    .textarea textarea:focus {
+      border-color: #444;
+    }
+
+    form .btn {
+      height: 45px;
+      width: 100%;
+      margin: 15px 0;
+    }
+
+    form .btn button {
+      height: 100%;
+      width: 100%;
+      border: 1px solid #444;
+      outline: none;
+      background: #222;
+      color: #999;
+      font-size: 17px;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    form .btn button:hover {
+      background: #1b1b1b;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to italy</h1>
+  </header>
+  <div class="dodo">
+    <div class="place">
+      <img src="Piazza del Duomo2.jpg" alt="Piazza del Duomo2">
+      <div class="place-info">
+        <h2>Piazza del Duomo</h2>
+        <p>It is the bell tower of the cathedral of the Italian city of Pisa. The tower was supposed to be vertical
+          , but it began to tilt shortly after the start of its construction in August 1173 AD
+          . It is located next to Pisa Cathedral, Piazza dei Miracoli.</p>
+      </div>
+    </div>
+    <div class="place">
+      <img src="Cinque Terre.jpg" alt="Cinque Terre">
+      <div class="place-info">
+        <h2>Cinque Terre</h2>
+        <p>The Cinque Terre coast (in Italian: Cinque Terre), which means "the five countries",
+          is a populated coastal area about 12 kilometers long on the coast of the Italian Riviera between Punta Mesco
+          and "Punta di Montenare" in the Liguria region
+          . The five countries are aligned from northwest to southeast: Monterosso al Mare, Vernazza, Corniglia,
+          Manarola, and Riomaggio, and the sea coast slopes steeply in front of them.</p>
+      </div>
+    </div>
+    <div class="place">
+      <img src="Grand Tremezzo.jpg" alt="italy Hotel">
+      <div class="place-info">
+        <h2>Grand Tremezzo</h2>
+        <p>The hotel was built on behalf of Enea Gandola on the grounds that previously belonged to Villa Poncetta.
+          Gandola, who was from nearby Bellagio, had bought the land in 1907 with the purpose to build a new luxury
+          hotel to meet Tremezzo's increasing tourism development.
+          Construction works started in 1908 and were completed in 1910</p>
+      </div>
+    </div>
+    <div class="place">
+      <img src="airport  italy.jpg" alt="airport  italy">
+      <div class="place-info">
+        <h2>airport italy</h2>
+        <p>The main international airport serving italy.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="post">
+        <div class="text">Thanks for rating us!</div>
+        <div class="edit">EDIT</div>
+      </div>
+      <div class="star-widget">
+        <input type="radio" name="rate" id="rate-5">
+        <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4">
+        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3">
+        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2">
+        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1">
+        <label for="rate-1" class="fas fa-star"></label>
+        <form action="#">
+          <header></header>
+          <div class="textarea">
+            <textarea cols="30" placeholder="Describe your experience.."></textarea>
+          </div>
+          <div class="btn">
+            <button type="submit">Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const btn = document.querySelector("button");
+      const post = document.querySelector(".post");
+      const widget = document.querySelector(".star-widget");
+      const editBtn = document.querySelector(".edit");
+      btn.onclick = () => {
+        widget.style.display = "none";
+        post.style.display = "block";
+        editBtn.onclick = () => {
+          widget.style.display = "block";
+          post.style.display = "none";
+        }
+        return false;
+      }
+    </script>
+  </footer>
+
+</body>
+
+</html>

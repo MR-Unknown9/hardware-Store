@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore the World</title>
+  <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+<center>
+    <h1>on a Journey to Explore the World</h1>
+</center>
+
+<section class="tour-search">
+  <div class="container">
+
+    <form action="#" class="tour-search-form" id="tour-form">
+
+      <div class="input-wrapper">
+        <label for="name" class="input-label">Name*</label>
+        <input type="text" name="name" id="name" required placeholder="Enter Your Name"
+               class="input-field">
+        <span class="error" id="name-error"></span>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="phone" class="input-label">Phone Number*</label>
+        <input type="text" name="phone" id="phone" required placeholder="Enter Your Phone Number"
+               class="input-field">
+        <span class="error" id="phone-error"></span>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="id" class="input-label" id="id-label">ID Number*</label>
+        <input type="text" name="id" id="id" required placeholder="Enter Your ID Number"
+               class="input-field">
+        <span class="error" id="id-error"></span>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="passport" class="input-label" id="passport-label">Passport</label>
+        <input type="text" name="passport" id="passport" required placeholder="Enter Your Passport/ID Number"
+               class="input-field">
+        <span class="error" id="passport-error"></span>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="visa-photo" class="input-label">Visa Photo*</label>
+        <input type="file" name="visa-photo" id="visa-photo" accept="image/*" required
+               class="input-field">
+      </div>
+
+      <div class="input-wrapper">
+        <label for="destination" class="input-label">Destination*</label>
+        <input type="text" name="destination" id="destination" required placeholder="Enter Destination"
+               class="input-field">
+      </div>
+
+      <div class="input-wrapper">
+        <label for="people" class="input-label">Number of Guests*</label>
+        <input type="number" name="people" id="people" required placeholder="Number of Guests"
+               class="input-field">
+      </div>
+
+      <div class="input-wrapper">
+        <label for="checkin" class="input-label">Check-in Date*</label>
+        <input type="date" name="checkin" id="checkin" required class="input-field">
+      </div>
+
+      <div class="input-wrapper">
+        <label for="checkout" class="input-label">Check-out Date*</label>
+        <input type="date" name="checkout" id="checkout" required class="input-field">
+      </div>
+
+      <button type="submit" class="btn btn-secondary">Inquire Now</button>
+
+    </form>
+
+    <div id="back-button-container"></div>
+
+  </div>
+</section>
+
+<script>
+  document.getElementById('tour-form').addEventListener('submit', function(event) {
+    var nameInput = document.getElementById('name').value;
+    var phoneInput = document.getElementById('phone').value;
+    var idInput = document.getElementById('id').value;
+    var passportInput = document.getElementById('passport').value;
+
+    var namePattern = /^[a-zA-Z ]*$/;
+    var phonePattern = /^\d{11}$/;
+    var idPattern = /^\d{14}$/;
+
+    var nameIsValid = namePattern.test(nameInput);
+    var phoneIsValid = phonePattern.test(phoneInput);
+    var idIsValid = idPattern.test(idInput);
+    var passportIsValid = idPattern.test(passportInput);
+
+    if (!nameIsValid) {
+      document.getElementById('name-error').textContent = 'Please enter a valid name';
+      event.preventDefault();
+    } else {
+      document.getElementById('name-error').textContent = '';
+    }
+
+    if (!phoneIsValid) {
+      document.getElementById('phone-error').textContent = 'Please enter a valid phone number (11 digits)';
+      event.preventDefault();
+    } else {
+      document.getElementById('phone-error').textContent = '';
+    }
+
+    if (!idIsValid) {
+      document.getElementById('id-error').textContent = 'Please enter a valid ID number (14 digits)';
+      event.preventDefault();
+    } else {
+      document.getElementById('id-error').textContent = '';
+    }
+
+    if (!passportIsValid) {
+      document.getElementById('passport-error').textContent = 'Please enter a valid passport number (14 digits)';
+      event.preventDefault();
+    } else {
+      document.getElementById('passport-error').textContent = '';
+    }
+
+   
+    if (nameIsValid && phoneIsValid && idIsValid && passportIsValid) {
+      event.preventDefault();
+      alert('Booking successful!');
+      var backButton = document.createElement('button');
+      backButton.textContent = 'Back to Home';
+      backButton.addEventListener('click', function() {
+        window.location.href = 'index.html'; 
+      });
+      document.getElementById('back-button-container').appendChild(backButton);
+    }
+  });
+</script>
+
+</body>
+</html>

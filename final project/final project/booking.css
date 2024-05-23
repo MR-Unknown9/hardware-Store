@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: url("assets/gallery-2.jpg");
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  color: white;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.input-label {
+  font-size: 1.4rem;
+  margin-right: 20px;
+  min-width: 200px;
+}
+
+.input-field {
+  padding: 12px;
+  width: calc(100% - 240px);
+
+  border: 1px solid #000;
+}
+
+#passport-label::before,
+#id-label::before {
+  background-color: #6c757d;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+#back-button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#back-button-container button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#back-button-container button:hover {
+  background-color: #45a049;
+}
